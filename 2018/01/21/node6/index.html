@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="技巧 高级版的 log 1console.log.call(consol, t, ...args)  追加 log 内容到文本 123output = fs.createWriteStream(path, &amp;#123; flags: &amp;apos;a&amp;apos;&amp;#125;)logger = new Console(output)logger.log(t, ...args)  Object.assi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node6">
+<meta property="og:url" content="http://yoursite.com/2018/01/21/node6/index.html">
+<meta property="og:site_name" content="node">
+<meta property="og:description" content="技巧 高级版的 log 1console.log.call(consol, t, ...args)  追加 log 内容到文本 123output = fs.createWriteStream(path, &amp;#123; flags: &amp;apos;a&amp;apos;&amp;#125;)logger = new Console(output)logger.log(t, ...args)  Object.assi">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-22T04:38:12.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node6">
+<meta name="twitter:description" content="技巧 高级版的 log 1console.log.call(consol, t, ...args)  追加 log 内容到文本 123output = fs.createWriteStream(path, &amp;#123; flags: &amp;apos;a&amp;apos;&amp;#125;)logger = new Console(output)logger.log(t, ...args)  Object.assi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/21/node6/"/>
+
+
+
+
+
+  <title>node6 | node</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">node</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T19:05:47-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>高级版的 log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log.call(consol, t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>追加 log 内容到文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = fs.createWriteStream(path, &#123; flags: &apos;a&apos;&#125;)</span><br><span class="line">logger = new Console(output)</span><br><span class="line">logger.log(t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Object.assign(a, b) 拼接两个对象的方法, 后面的 b 会加到前面的 a 去, 并且 a 是拼接之后的对象， 如果 a，b 一样, 同名 后面 会覆盖前面的</strong></p>
+</li>
+<li>返回实例的方法就必然要用 static 方法</li>
+<li>修改东西一定要先注释，测试没有问题之后再删除, 再右键文件写local history 的label, 会记录删除了什么</li>
+<li>不要再一个函数做两个事情, 逻辑就是逻辑, 页面就是页面</li>
+<li>事不过三原则, 对象超过两个要换行, 变量调用超过两个要用更简短的变量接住</li>
+<li>写 what 不写how, 疯狂拆函数, 一个函数一件事情</li>
+</ul>
+<h1 id="nunjucks-模板"><a href="#nunjucks-模板" class="headerlink" title="nunjucks 模板"></a>nunjucks 模板</h1><p>模板引擎是把代码和生成代码的逻辑直接放在 html 中, 用于动态替换一个值或者批量生成列表, web 框架通用的套路技术.</p>
+<ul>
+<li><p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const numjucks = require(&apos;nunjucks&apos;)</span><br><span class="line"></span><br><span class="line">// 当前文件所在的目录 __dirname/templetes</span><br><span class="line"></span><br><span class="line">// 单例</span><br><span class="line">const configuredEnvironment = (() =&gt; &#123;</span><br><span class="line">    env = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (env === null) &#123;</span><br><span class="line">            const p = path.join(__dirname, &apos;templates&apos;)</span><br><span class="line">            const env = nunjucks.configure(p)</span><br><span class="line">            return env</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return env        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">const template = (path, data) =&gt; &#123;</span><br><span class="line">    const env = configuredEnvironment()</span><br><span class="line">    const r = env.render(path, data)</span><br><span class="line">    return r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语法<br>变量替换 <br>循环  </p>
+</li>
+</ul>
+<p>DSL(领域特定语言) 读到特定的字符串解析</p>
+<h1 id="单例的实现"><a href="#单例的实现" class="headerlink" title="单例的实现"></a>单例的实现</h1><p>通过 IIFE 来实现变量的一次修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constuctor() &#123;</span><br><span class="line">        this.key = &apos;test&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const single = ( () =&gt; &#123;</span><br><span class="line">    let i = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (i === null) &#123;</span><br><span class="line">            i = new Foo()</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">    &#125;)()</span><br><span class="line"></span><br><span class="line">const o1 = single()</span><br><span class="line">const o2 = single()</span><br><span class="line"></span><br><span class="line">console.log(o1 === o2) // true</span><br></pre></td></tr></table></figure></p>
+<h1 id="批量修改"><a href="#批量修改" class="headerlink" title="批量修改"></a>批量修改</h1><p>把要改的东西放到数组里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const t = &#123;&#125;</span><br><span class="line">const validNames = [</span><br><span class="line">    &apos;task&apos;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">Object.keys(form).forEach( k =&gt; &#123;</span><br><span class="line">    if (validNames.includes(k)) &#123;</span><br><span class="line">        t[k] = form[k]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="RESTFUL-与-路由方案"><a href="#RESTFUL-与-路由方案" class="headerlink" title="RESTFUL 与 路由方案"></a>RESTFUL 与 路由方案</h1><ol>
+<li><p>RESTFUL<br>把 path 当做资源, http 各种方法当做动词来操作这些资源.<br>app.get(‘/todos’)<br>app.get(‘/todo/:id’)<br>app.post(‘/todo’)<br>app.put(‘/todo’)<br>app.patch(‘/todo’)<br>app.delete(‘/todo’)</p>
+</li>
+<li><p>路由方案<br>/todo/all<br>/todo/id<br>/todo/delete<br>/todo/add<br>/todo/update</p>
+</li>
+</ol>
+<p>..</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/21/node5/" rel="next" title="node5">
+                <i class="fa fa-chevron-left"></i> node5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/21/node7/" rel="prev" title="node7">
+                node7 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">eddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">1.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nunjucks-模板"><span class="nav-number">2.</span> <span class="nav-text">nunjucks 模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例的实现"><span class="nav-number">3.</span> <span class="nav-text">单例的实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#批量修改"><span class="nav-number">4.</span> <span class="nav-text">批量修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RESTFUL-与-路由方案"><span class="nav-number">5.</span> <span class="nav-text">RESTFUL 与 路由方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eddy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

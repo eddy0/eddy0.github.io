@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="技巧与思想 核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作 require.main 套路123if (require.main == module) &amp;#123;    __main()&amp;#125;   当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 requir">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node5">
+<meta property="og:url" content="http://yoursite.com/2018/01/21/node5/index.html">
+<meta property="og:site_name" content="node">
+<meta property="og:description" content="技巧与思想 核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作 require.main 套路123if (require.main == module) &amp;#123;    __main()&amp;#125;   当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 requir">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-23T04:39:12.435Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node5">
+<meta name="twitter:description" content="技巧与思想 核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作 require.main 套路123if (require.main == module) &amp;#123;    __main()&amp;#125;   当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 requir">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/21/node5/"/>
+
+
+
+
+
+  <title>node5 | node</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">node</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T10:34:02-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="技巧与思想"><a href="#技巧与思想" class="headerlink" title="技巧与思想"></a>技巧与思想</h1><ul>
+<li>核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作</li>
+<li>require.main 套路<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (require.main == module) &#123;</span><br><span class="line">    __main()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 require.main 的意思是只有执行这段程序所在的文件时, require.main 才是 true, 引入到其他文件的 require.main 为 true, 可以保证这段代码在别的地方不被执行</p>
+<ul>
+<li><strong>最外面不要有变量的定义, 所有东西都要用函数包起来</strong></li>
+<li><p>箭头函数与 map 的组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const s = Object.keys(mapper).map(k =&gt; `$&#123;k&#125;: $&#123;mapper[k]&#125;\r\n`).join(&apos;&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>做东西先把东西最初的东西显示出来, 改一点测一点, 不能要求一次性写完, 先宏观再微观, 从粗略到细节, 先冗余再重构到抽象.</strong></p>
+</li>
+<li>写程序的规范和模式: 一个路由专门写 view, 写页面, 一个路由专门写逻辑<code>比如写 todo 的时候先 get edit 路由, 跳转到编辑页面, 再在 edit 页面 post update 路由, 写要修改的东西</code></li>
+<li>id 传入进来的时候一定要先用 Number 转为同一个类型， 因为js 比较不同类型的时候会自动转, 这样容易出现 bug, 而且 log 字符串的数字和数值的数字打印出来是一样的.</li>
+<li><strong>要写what, 不要写how.—明确分工</strong> 数据就是 model, 关于数据的操作就应该在 model 里面改, controller 里面只需要拿到 model 给的 api 就可以行了<code>比如要更新数据, 路由函数里面不需要关心如何update, 只需要得到服务器 post 传入的数据, 调用 model 里面的 xx.update(数据) 的 api 就可以了, 具体如何 update 在专门处理数据的 model 里面做</code>, 这一步操作可以一开始就做, 也可以在 route 写好 what 之后确认程序可以运行再抽出去.</li>
+<li>数组的替换和删除可以用 splice, 对象的替换直接用 Object[value] = updatedKey  </li>
+<li>不要依赖JS 的隐试类型转换. return u !== null &amp;&amp; true</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>如果遇到status code 为 302 的时候, 浏览器会自动在 headers 里面找 Location 的对应的值 (path)， 并且会以 <strong>get</strong> 的形式再发一次请求. <code>浏览器会自动拼接 protocol, host 等等 和 Location 里面的 path, 形成一个新的页面</code></p>
+<p>301 永久重定向, 302 暂时重定向</p>
+<p>重定向的意义: redirect(‘/‘) 函数, 如果不符合规定, 浏览器帮服务器跳转到该去的地方, 比如登录了之后跳转到首页.</p>
+<p>form 表单的 content-teype: application/x-www-form-urlencoded</p>
+<h1 id="post-表单带-id-数据的方法"><a href="#post-表单带-id-数据的方法" class="headerlink" title="post 表单带 id 数据的方法"></a>post 表单带 id 数据的方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.  一致性比较强, 所有数据都在 form 里面</span><br><span class="line">&lt;form action=&quot;/todo&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;id&quot; value=&quot;&#123;&#123;id&#125;&#125;&quot; hidden&gt;  // 通过 hidden 隐藏id</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">2. 写在 path 里面, 通过 query 关键字得到</span><br><span class="line">&lt;form action=&quot;/todo/?id=&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">3. 动态路由, 这种方法要拿 id 必须要通过 parse path 的方法来拿</span><br><span class="line">&lt;form action=&quot;/todo/&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h1><p>CRUD (CREATE READ UPDATE DELETE)<br>delete 的时候需要权限验证</p>
+<h1 id="数据与用户关联"><a href="#数据与用户关联" class="headerlink" title="数据与用户关联"></a>数据与用户关联</h1><p>在各个数据之间带一个相同的数据值(连通纽带), 比如一个通用的 userId (数据库的外键)<br>一定要注意 post 传了什么数据给服务器, 共同值(纽带)在各自数据文本之中对应的 key 的名称是什么<code>比如传进来的是id, 值对应的是数据库中 key 是 userId</code></p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>方法: 函数套函数, 返回函数<br>作用:</p>
+<ol>
+<li>把函数作为参数传进来, 如果满足条件, 就执行这个函数, 如果不满足, 就执行其他的操作</li>
+<li>解决全局变量的问题, (函数变量满天飞)</li>
+<li>单例</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const loginRequired = (func) =&gt; &#123;</span><br><span class="line">    const f  = (request) =&gt; &#123;</span><br><span class="line">        const u = currentUser(request)</span><br><span class="line">        if (u === null) &#123;</span><br><span class="line">            return redirect(&apos;/&apos;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return func(request)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h1><p>多个元素合并成一个元素. Array.reduce(callback(callback的返回值, 数组的每一项), 初始值)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. forEach 方法</span><br><span class="line">headers.forEach((header) =&gt; &#123;</span><br><span class="line">    const [k, v] = header.split(&quot;: &quot;)</span><br><span class="line">    this.headers[k] = v</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">2. reduce 方法</span><br><span class="line">headers.reduce((o, item) =&gt;&#123;</span><br><span class="line">    const [k, v] = item.split(&apos;: &apos;)</span><br><span class="line">    o[k] = v</span><br><span class="line">    return o</span><br><span class="line">    &#125;, this.headers)</span><br><span class="line">// 第一次的 o 是 this.headers， 第二次的 o 是item 第一次计算的返回值</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// redux</span><br><span class="line"></span><br><span class="line">var compose = (...funcs) =&gt; &#123;</span><br><span class="line">    return funcs.reduce( (a,b) =&gt; (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// compose 的每一项参数(参数为函数), ...funcs</span><br><span class="line">// funcs 为 函数组成的数组, 用 ruduce 方法</span><br><span class="line">// 把后一个参数(函数 `b`)的返回值 `b(...args)` 作为 参数 传给 前一个函数`a`</span><br><span class="line"></span><br><span class="line">var add = (x ,y ) =&gt; x + y</span><br><span class="line">var sum = (...args) =&gt; args.reduce( (a, b) =&gt; a+b )</span><br><span class="line">var multi = (l) =&gt; l * 10</span><br><span class="line">var s = compose(multi, add)</span><br><span class="line">s(1,2)</span><br><span class="line"></span><br><span class="line">applyMiddleware( devTools(...args) ) (  persistState(...args) ) (  createStore(...args) )</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/21/node4/" rel="next" title="node4">
+                <i class="fa fa-chevron-left"></i> node4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/21/node6/" rel="prev" title="node6">
+                node6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">eddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧与思想"><span class="nav-number">1.</span> <span class="nav-text">技巧与思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重定向"><span class="nav-number">2.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#post-表单带-id-数据的方法"><span class="nav-number">3.</span> <span class="nav-text">post 表单带 id 数据的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CRUD"><span class="nav-number">4.</span> <span class="nav-text">CRUD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据与用户关联"><span class="nav-number">5.</span> <span class="nav-text">数据与用户关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">6.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce"><span class="nav-number">7.</span> <span class="nav-text">reduce</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eddy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

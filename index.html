@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="node">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="node">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>node</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">node</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/node11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/24/node11/" itemprop="url">node10</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-24T07:08:35-08:00">
+                2018-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧和理论"><a href="#技巧和理论" class="headerlink" title="技巧和理论"></a>技巧和理论</h1><ul>
+<li>写 WEB 实际上是在操作字符串, 比如写请求头, 请求的格式, 版本, Path, query, body 这些, web 的发展从 C, perl, php, java, ror (ruby on rails), python, node( JavaScript) express/koa</li>
+<li>禁止使用正则表达式, 可读性非常差</li>
+<li>学的时候资料很丰富, 比较活跃, koa 把异步的封装的比较好, 但是我自己处理这块也没有什么问题, 如果要上手的话, 看下文档也可以写.</li>
+<li>host ‘0.0.0.0’,  让别人也可以访问你的电脑</li>
+</ul>
+<ul>
+<li><p>路由按功能划分, todo 就是 todo 的路由</p>
+</li>
+<li><p>debug 难点: 并不知道程序运行的状态, 程序运行到哪里, 用 log, 把变量值 log 出来, 在循环里面 log</p>
+</li>
+<li><p>动态路由的好处是路由非常简洁</p>
+</li>
+</ul>
+<h1 id="niginx-安装"><a href="#niginx-安装" class="headerlink" title="niginx 安装"></a>niginx 安装</h1><p>重启 nginx<br><code>service nginx restart</code></p>
+<p>运行程序<br><code>yarn run start</code></p>
+<p>安装 pm2<br><code>yarn global add pm2</code></p>
+<p>pm2 日志<br><code>$HOME/.pm2/logs</code> 文件夹会包含所有应用的日志</p>
+<p>实时日志命令<br><code>pm2 logs</code></p>
+<p>// ===<br>// 服务器中文编码问题<br>// ===<br>//<br>// 编辑下面的文件, 不要拼错<br>nano /etc/environment<br>// 加入下面的内容, 保存退出<br>LC_CTYPE=”en_US.UTF-8”<br>LC_ALL=”en_US.UTF-8”<br>*/</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/node9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/node9/" itemprop="url">node9</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T10:49:41-08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#连接服务器<br>ssh root@108.61.214.98</p>
+<p>终端: 可以运行不同的Shell(壳), shell 去运行操作系统内核的命令</p>
+<ul>
+<li><p>pwd</p>
+<ul>
+<li>救命命令, 看自己在哪个目录</li>
+<li>print working dir</li>
+<li>显示现在所处的目录</li>
+</ul>
+</li>
+<li><p>echo $PATH</p>
+<ul>
+<li>环境变量, 当输入一个命令, 系统会去 $PATH 里面找, 如果在其中是目录里面, 就可以执行输入的命令</li>
+<li>用冒号分隔</li>
+</ul>
+</li>
+<li><p>ls</p>
+<ul>
+<li>不带参数就显示当前目录下的所有文件</li>
+<li>程序可以加参数</li>
+<li>ls / 显示根目录</li>
+<li><code>-l</code> 显示详细信息</li>
+<li><code>-h</code> 人性化显示文件尺寸</li>
+<li><code>-a</code> 显示所有文件， 以 . 开头的文件是隐藏文件</li>
+<li>还可以带一个目录当参数，这样就会显示这个目录</li>
+<li>下面两个是等价的<ul>
+<li><code>ls -l -h</code></li>
+<li><code>ls -lh</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>cd</p>
+<ul>
+<li>cd Desktop</li>
+<li>改变当前目录 change directory</li>
+<li>. 代表当前目录</li>
+<li>.. 代表上级目录</li>
+<li>cd 不带参数就回到默认的家目录  cd</li>
+<li>每个用户都有一个家目录，默认在 <code>/home/用户名</code></li>
+<li>root 用户的家目录是 <code>/root</code></li>
+</ul>
+</li>
+<li><p>touch</p>
+<ul>
+<li><code>touch a.gua</code></li>
+<li>如果 a.gua 存在就更新修改时间</li>
+<li>如果 a.gua 不存在就创建文件</li>
+</ul>
+</li>
+<li><p>mkdir</p>
+<ul>
+<li>创建一个目录</li>
+<li><code>-p</code> 可以一次性创建多层目录</li>
+<li><code>mkdir -p a/b/c</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>cp</p>
+<ul>
+<li>复制出一个文件，用法如下</li>
+<li><code>cp a.txt b.txt</code></li>
+<li>复制 a.txt 并把新文件取名为 b.txt</li>
+<li>复制目录要加上 -r 参数</li>
+<li><code>cp -r a b</code></li>
+</ul>
+</li>
+<li><p>rmdir</p>
+<ul>
+<li>只能用来删除一个空目录</li>
+</ul>
+</li>
+<li><p>rm</p>
+<ul>
+<li>这个命令直接删除东西，很危险，一般不要用</li>
+<li>删除文件或者目录</li>
+<li><code>-f</code> 强制删除</li>
+<li><code>-r</code> 用来删除目录</li>
+</ul>
+</li>
+<li><p>mv</p>
+<ul>
+<li>移动文件或者文件夹</li>
+<li>也可以用来改名</li>
+<li><code>mv a.txt b.txt</code></li>
+<li><code>mv b.txt ../</code></li>
+<li><code>mv b.txt ../gua.txt</code></li>
+<li>可以用 <code>mv xx /tmp</code> 的方式来将文件放入临时文件夹</li>
+<li>tmp是操作系统提供的临时文件夹，重启会删除里面的所有文件</li>
+</ul>
+</li>
+<li><p>cat</p>
+<ul>
+<li>显示文件内容</li>
+</ul>
+</li>
+<li>tac<ul>
+<li>反过来显示文件内容</li>
+</ul>
+</li>
+<li><p>nl</p>
+<ul>
+<li>显示内容并附带行号</li>
+</ul>
+</li>
+<li><p>more less head tail</p>
+<ul>
+<li>more 可以分屏分批看文件内容</li>
+<li>less 比 more 更高级，可以前后退看文件 q 退出</li>
+<li>head 可以显示文件的前 10 行</li>
+<li>tail 可以显示文件的后 10 行</li>
+<li>head 和 tail 有一个 -n 参数</li>
+<li><code>head -n 20 a.gua</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="目录分布"><a href="#目录分布" class="headerlink" title="目录分布"></a>目录分布</h2><p>主要如下：</p>
+<ul>
+<li><code>/home</code> 家目录</li>
+<li><code>/root</code> root 用户目录</li>
+<li><code>/etc</code> 放配置文件</li>
+<li><code>/tmp</code> 临时文件</li>
+<li><code>/var/log</code> 日志</li>
+<li><code>/bin</code> binary 命令存放的地方。有好几个 bin，不用理解。</li>
+<li><code>/lib</code> library 库</li>
+</ul>
+<h2 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h2><ul>
+<li>sudo<ul>
+<li>用管理员帐户执行程序</li>
+<li>比如安装程序或者修改一些系统配置都需要管理员权限</li>
+</ul>
+</li>
+<li>su<ul>
+<li>switch user， 切换用户</li>
+<li><code>su root</code> 为了方便操作, 统一选择 root 用户, 也就是说如果你不是用 root 登录，先切换到 root 用户</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件权限    文件类型 用户 用户组 文件大小  修改日期     文件名</span><br><span class="line">-rw-rw-r--  1       gua gua     10      11/09 20:28 b.gua</span><br><span class="line">drwxrwxr-x  2       gua gua     4096    11/09 20:28 tmp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件类型    是否可读  是否可写  是否可执行</span><br><span class="line">d           r       w           x</span><br><span class="line">-           r       w           x</span><br></pre></td></tr></table></figure>
+<ul>
+<li>三组 rwx 分表代表 所属用户|同组用户|其他用户</li>
+<li>rwx 可以用数字表示为 421</li>
+<li>于是乎<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r-- 就是 4</span><br><span class="line">rw- 就是 6</span><br><span class="line">rwx 就是 7</span><br><span class="line">r-x 就是 5</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-r--     文件的访问权限</span><br><span class="line">1              文件的链接数目(这个不用关心)</span><br><span class="line">root           文件所有者的用户名</span><br><span class="line">root           文件所属用户组</span><br><span class="line">10             文件大小（单位是字节）</span><br><span class="line">11/09 20:28    上次修改文件的日期和时间</span><br><span class="line">b.gua          文件名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>chown<ul>
+<li>改变文件的用户</li>
+<li><code>chown gua c.gua</code></li>
+<li><code>chown gua:gua c.gua</code></li>
+</ul>
+</li>
+<li>chmod<ul>
+<li>改变文件权限，不要用数字</li>
+<li><code>chmod 666 root.gua</code></li>
+<li><code>chmod +x root.gua</code></li>
+<li><code>chmod -x tmp</code></li>
+<li>修改所属用户权限 <code>chmod u+x tmp</code></li>
+<li>修改同组用户权限 <code>chmod g+x tmp</code></li>
+<li>修改其他用户权限 <code>chmod o+x tmp</code></li>
+</ul>
+</li>
+</ul>
+<p>drwxr—– 2 root   root 4.0K Jan 22 16:02 data</p>
+<h2 id="信息查找"><a href="#信息查找" class="headerlink" title="信息查找"></a>信息查找</h2><ul>
+<li>file<ul>
+<li>显示文件的类型（不是百分之百准确）</li>
+</ul>
+</li>
+<li>uname<ul>
+<li>显示操作系统的名字或者其他信息</li>
+<li><code>uname -r</code></li>
+<li><code>uname -a</code></li>
+</ul>
+</li>
+<li>which<ul>
+<li><code>which pwd</code></li>
+<li>显示 pwd 的具体路径</li>
+</ul>
+</li>
+<li>whereis<ul>
+<li><code>whereis ls</code></li>
+<li>显示更全面的信息</li>
+</ul>
+</li>
+<li>whoami</li>
+<li><code>find . -name &quot;&quot;</code></li>
+</ul>
+<h2 id="奇怪符号"><a href="#奇怪符号" class="headerlink" title="奇怪符号"></a>奇怪符号</h2><p>~   家目录快捷方式</p>
+<blockquote>
+<p>  覆盖式重定向</p>
+<blockquote>
+<p> 追加重定向<br>|   管道, history | gerp a  在 history 里面找 a 这个命令， 在 | 之前的 做什么事情<br><code>`  获取命令执行的结果
+比如 echo pwd 输出的就是 pwd 这个字符串
+echo</code>pwd` 输出的是 pwd 命令执行的结果, 相当于一个变量</p>
+</blockquote>
+</blockquote>
+<p>&amp;   后台执行<br>    node server.js &amp;<br>    可以用 fg 命令把一个在后台的程序拉到前台来<br>    可以用 Ctrl-z 来把一个前台的程序放到后台去挂起<br>()  开新的子进程shell执行 (不用掌握这一条, 因为几乎没人用)</p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><ul>
+<li>history<ul>
+<li>查看历史命令</li>
+</ul>
+</li>
+<li>grep<ul>
+<li>查找</li>
+</ul>
+</li>
+<li>这两个一般配合使用<ul>
+<li><code>history | grep touch</code></li>
+</ul>
+</li>
+<li>C-r 搜索上一条命令</li>
+<li><p>ps</p>
+<ul>
+<li>查看进程, 一般用下面的用法</li>
+<li><code>ps ax</code></li>
+<li><code>ps ax | grep node</code></li>
+<li>查看带 node 字符串的进程</li>
+</ul>
+</li>
+<li><p>kill 和 killall 杀进程</p>
+<ul>
+<li>用 <code>ps ax</code> 找到进程id (pid)</li>
+<li>普通杀： <code>kill [pid]</code> / <code>kill -15 [pid]</code> / <code>kill -TERM [pid]</code></li>
+<li>强制杀： <code>kill -9 [pid]</code> / <code>kill -KILL [pid]</code></li>
+<li>先用 <code>kill</code> 再用 <code>kill -KILL</code>，不要用带数字的</li>
+<li>killall 是用进程名字来杀进程</li>
+</ul>
+</li>
+<li><p>后台前台</p>
+<ul>
+<li>fg</li>
+<li>jobs</li>
+</ul>
+</li>
+<li><p>快捷键</p>
+<ul>
+<li>C-z 挂起到后台</li>
+<li>C-c C-d 中断程序</li>
+</ul>
+</li>
+<li><p>reboot</p>
+<ul>
+<li>重启</li>
+</ul>
+</li>
+<li>shutdown<ul>
+<li>关机</li>
+<li>可以用参数指定时间</li>
+</ul>
+</li>
+<li>halt<ul>
+<li>关机</li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh-key-的概念和使用"><a href="#ssh-key-的概念和使用" class="headerlink" title="ssh-key 的概念和使用"></a>ssh-key 的概念和使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 1. 生成 ssh id_rsa.pub</span><br><span class="line">ssh-keygen</span><br><span class="line">Mac 用户直接打开终端输入命令</span><br><span class="line">Win 打开 cmder 程序, 在里面输入下面的命令</span><br><span class="line"></span><br><span class="line">1. 在本机生成 ssh key 公钥私钥</span><br><span class="line">注意 下面的 mykey 随便换一个你喜欢的名字, 这是一个标注, 方便你看的</span><br><span class="line">ssh-keygen -C &lt;mykey&gt;</span><br><span class="line">会提示你生成的文件的地址, 并且让你输入密码, 你不要输入密码, 直接回车</span><br><span class="line"></span><br><span class="line">这样你就得到了一对 ssh-key, 这是用于登录服务器用的</span><br><span class="line">默认你会得到两个文件</span><br><span class="line">id_rsa 是私钥 自己保存 不要给别人看</span><br><span class="line">id_rsa.pub 是公钥, 是要到处使用的</span><br><span class="line">这个是我们之前提到的非对称加密</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 2. 普通用户把 public key 添加到 ~/.ssh/authorized_keys</span><br><span class="line">##  root用户把 public key 添加到 /root/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># 3. 重启 ssh</span><br><span class="line">service ssh restart</span><br></pre></td></tr></table></figure>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p><code>apt-get install 软件名</code><br>比如下面<br><code>apt-get install ufw</code></p>
+<h2 id="安装防火墙-和-防火墙的基本套路配置"><a href="#安装防火墙-和-防火墙的基本套路配置" class="headerlink" title="安装防火墙 和 防火墙的基本套路配置"></a>安装防火墙 和 防火墙的基本套路配置</h2><ul>
+<li>防火墙的作用(redis安全漏洞)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ufw</span><br><span class="line">ufw allow 22</span><br><span class="line">ufw allow 80</span><br><span class="line">ufw allow 443</span><br><span class="line">ufw default deny incoming</span><br><span class="line">ufw default allow outgoing</span><br><span class="line">ufw status verbose</span><br><span class="line">ufw enable</span><br></pre></td></tr></table></figure>
+<h2 id="Shell-设置"><a href="#Shell-设置" class="headerlink" title="Shell 设置"></a>Shell 设置</h2><ol>
+<li>装 zsh <code>sudo apt-get install zsh</code></li>
+<li>装 oh-my-zsh<br><code>wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</code></li>
+</ol>
+<p>部署项目</p>
+<h1 id="软件安装-1"><a href="#软件安装-1" class="headerlink" title="软件安装"></a>软件安装</h1><p>安装 git nginx<br><code>apt-get install git nginx</code></p>
+<p>ubuntu 的软件仓库中的 nodejs 更新很慢, 几乎可以认为不可用,<br>所以我们从 nodeSource 仓库中安装新款 nodejs</p>
+<p>配置 nodeSource 仓库<br><code>curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -</code></p>
+<p>配置之后就可以安装最新的 nodejs<br><code>sudo apt-get install -y nodejs</code></p>
+<p>安装 yarn<br><code>npm install yarn -g</code></p>
+<p>安装依赖<br><code>yarn install</code></p>
+<p>配置 nginx<br><code>ln -s /var/www/weibo/weibo.nginx /etc/nginx/sites-enabled/weibo</code></p>
+<p>列出 nginx/sites-enabled 下面的文件<br><code>root@linlab:~# ls -l /etc/nginx/sites-enabled/</code></p>
+<p>第一个字母是 l, 这个表示 weibo 是一个软链接, 当访问 weibo 时,<br>实际上访问的是 /var/www/weibo/weibo.nginx<br>这样做的好处是我们只需要更新 weibo.nginx 就可以<br>软链接类似 windows 下的快捷方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrwxrwxrwx 1 root root 26 May 23 14:09 weibo -&gt; /var/www/weibo/weibo.nginx</span><br></pre></td></tr></table></figure></p>
+<p>移除默认的配置文件<br><code>mv /etc/nginx/sites-enabled/default /tmp</code><br><code>mv /etc/nginx/sites-available/default /tmp</code></p>
+<p>重启 nginx<br><code>service nginx restart</code></p>
+<p>运行程序<br><code>yarn run start</code></p>
+<p>安装 pm2<br><code>yarn global add pm2</code></p>
+<p>pm2 日志<br><code>$HOME/.pm2/logs</code> 文件夹会包含所有应用的日志</p>
+<p>实时日志命令<br><code>pm2 logs</code></p>
+<p>// ===<br>// 服务器中文编码问题<br>// ===<br>//<br>// 编辑下面的文件, 不要拼错<br>nano /etc/environment<br>// 加入下面的内容, 保存退出<br>LC_CTYPE=”en_US.UTF-8”<br>LC_ALL=”en_US.UTF-8”<br>*/</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node8/" itemprop="url">node8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T21:52:57-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="web-框架"><a href="#web-框架" class="headerlink" title="web 框架"></a>web 框架</h1><p>cookie 和 session, 加密, 模板</p>
+<h1 id="数据库为什么这么快"><a href="#数据库为什么这么快" class="headerlink" title="数据库为什么这么快"></a>数据库为什么这么快</h1><p>不同的数据结构来存储数据, 对数据的操作花的时间不一样<br>数据库用了更快的数据结构来操作数据, 来保证 CRUD 更快更方便<br>数据库是最早计算机发展的原动力, 比如电影, 游戏需要计算机图形学, 需要更快的数据.<br>当数据量大的时候, 数据库的速度就很明显了</p>
+<h1 id="sql-数据库和-nosql-数据库的区别"><a href="#sql-数据库和-nosql-数据库的区别" class="headerlink" title="sql 数据库和 nosql 数据库的区别"></a>sql 数据库和 nosql 数据库的区别</h1><p>sql 是 关系型数据库, 给大型企业用的, 追求稳定, 但是成本高, 结构要求一致, 以表的形式存储数据<br>NoSQL no only sql, 一个新式的数据库, 速度更快,<br>better-sqlite3: 同步， 嵌入式开发使用</p>
+<p>数据库通过 SQL 来操作数据<br>SQL （结构化查询语言）<br>操作数据库的接口 也就是操作数据库的方法</p>
+<ul>
+<li>增加数据</li>
+<li>删除数据</li>
+<li>修改数据</li>
+<li>查询数据</li>
+<li>CRUD create retrieve update delete</li>
+</ul>
+<h1 id="MEAN-技术栈-mongo-express-react-node"><a href="#MEAN-技术栈-mongo-express-react-node" class="headerlink" title="MEAN 技术栈 = mongo + express + react + node"></a>MEAN 技术栈 = mongo + express + react + node</h1><h1 id="JS-防止注入-—-用转义"><a href="#JS-防止注入-—-用转义" class="headerlink" title="JS 防止注入 — 用转义"></a>JS 防止注入 — 用转义</h1><h1 id="sqlite"><a href="#sqlite" class="headerlink" title="sqlite"></a>sqlite</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">const Database = require(&apos;better-sqlite3&apos;)</span><br><span class="line"></span><br><span class="line">// 创建一个表</span><br><span class="line">const create = (db) =&gt; &#123;</span><br><span class="line">    const sqlCreate = `</span><br><span class="line">    CREATE TABLE user (</span><br><span class="line">        id INTERGER NOT NULL PRMARY KEY AUTOINCREMENT,</span><br><span class="line">        username  TEXT NOT NULL UNIQUE,</span><br><span class="line">        password  TEXT NOT NULL,</span><br><span class="line">        email     TEXT</span><br><span class="line">        )</span><br><span class="line">    `</span><br><span class="line"></span><br><span class="line">    const statement = db.prepare(sqlCreate)</span><br><span class="line">    const info = statement.run()</span><br><span class="line">&#125;</span><br><span class="line">// 插入数据</span><br><span class="line">const insert = (db, username, password, email) =&gt; &#123;</span><br><span class="line">    const sqlInsert = `</span><br><span class="line">    INSERT INTO</span><br><span class="line">        users(username, password, email)</span><br><span class="line">    VALUES</span><br><span class="line">        (?,?,?)</span><br><span class="line">    `</span><br><span class="line">    const statement = db.prepare(sqlInsert)</span><br><span class="line">    const args = [username, password, email]</span><br><span class="line">    const info = statement.run(args)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 查询数据</span><br><span class="line">const select = (db,id) =&gt; &#123;</span><br><span class="line">    const sqlQuery = `</span><br><span class="line">    SELECT</span><br><span class="line">        *</span><br><span class="line">    FROM</span><br><span class="line">        users</span><br><span class="line">    WHERE</span><br><span class="line">        id=?</span><br><span class="line">    `</span><br><span class="line">    const statement = db.prepare(sqlQuery)</span><br><span class="line">    // 查一条</span><br><span class="line">    const row = statement.get()</span><br><span class="line">    // 查多条</span><br><span class="line">    const rows = statement.all()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除数据</span><br><span class="line">const del = (db, user_id) =&gt; &#123;</span><br><span class="line">    const sqlDelete = `</span><br><span class="line">    DELETE FROM</span><br><span class="line">        users</span><br><span class="line">    WHERE</span><br><span class="line">        id = ?</span><br><span class="line">    `</span><br><span class="line">    const statement = db.prepare(sqlDelete)</span><br><span class="line">    statement.run(userId)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//更新数据</span><br><span class="line">const update = (db, user_id, email) =&gt; &#123;</span><br><span class="line">    const sqlUpdate = `</span><br><span class="line">    UPDATE</span><br><span class="line">        users</span><br><span class="line">    SET</span><br><span class="line">        email=?</span><br><span class="line">    WHERE</span><br><span class="line">        id=?</span><br><span class="line">    `</span><br><span class="line">    const statement = db.prepare(sqlUpdate)</span><br><span class="line">    statement.run(email, user_id)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 创建一个数据库</span><br><span class="line">const database = () =&gt; &#123;</span><br><span class="line">    const dbPath = &apos;web&apos;</span><br><span class="line">    const db = new Database(dbPath)</span><br><span class="line"></span><br><span class="line">    console.log(db.open, db.name)</span><br><span class="line"></span><br><span class="line">    // create(db)</span><br><span class="line">    // del(db, user_id)</span><br><span class="line">    // update(db, user_id, email)</span><br><span class="line">    // select(db,)</span><br><span class="line"></span><br><span class="line">    // 用完数据库需要关闭</span><br><span class="line">    db.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node7/" itemprop="url">node7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T20:38:27-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li>子类覆盖父类方法但是又要调用父类的方法: super.create()</li>
+<li>session 的 cookie 加上 path 字段<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意Path 的 P 是大写</span><br><span class="line">headers[&apos;Set-Cookies&apos;] = `session=$&#123;s&#125;; Path=/`</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="摘要-hash-—摘要不是加密"><a href="#摘要-hash-—摘要不是加密" class="headerlink" title="摘要 hash —摘要不是加密"></a>摘要 hash —摘要不是加密</h1><ul>
+<li><p>摘要算法<br>摘要算法是一种能产生特殊输出格式的算法。给定任意长度的数据生成定长的密文.<br><strong>摘要结果是不可逆的, 不能被还原为原数据.</strong><br>理论上无法通过反向运算取得原数据， 而且一个安全的摘要无法找到碰撞.</p>
+</li>
+<li><p>作用:</p>
+<ul>
+<li>数据完整性验证, 下载的文件比对 sha1 的摘要结果， 就可以知道文件是否被篡改</li>
+<li>保护用户密码， 防止撞库， 用 A 网站的密码到 B 网站测试登录</li>
+</ul>
+</li>
+<li><p>常用的算法 md5 (32 字符) 和 sha1 (40 字符), sha256</p>
+</li>
+<li><p>问题: 彩虹表, 穷举各种组合的摘要.</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const testMd5 = function(s) &#123;</span><br><span class="line">    // 改成 sha1 只要把 algorithm 改为 &apos;sha1&apos;就好了, 或者 &apos;sha256&apos;</span><br><span class="line">    const algorithm = &apos;md5&apos;</span><br><span class="line">    const hash = crypto.createHash(algorithm)</span><br><span class="line">    hash.update(s)</span><br><span class="line">    console.log(&apos;md5 摘要&apos;, hash.digest(&apos;hex&apos;))</span><br><span class="line">    return hash.digest(&apos;hex&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="加盐"><a href="#加盐" class="headerlink" title="加盐"></a>加盐</h1><p>盐（salt）是为了防止黑客对密码进行碰撞，假如用户使用简单密码, 破解者可以用提前生成的简单密码摘要表（彩虹表）来破解原文。所以我们会存储一个额外的信息，扰乱用户的简单密码。<br>加盐是在用户密码的基础上再加一些字符串， 然后再用摘要</p>
+<ul>
+<li>作用 : 让黑客拿到的数据是无意义的，让彩虹表无效.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function saltedPassword(password, salt=&apos;&apos;) &#123;</span><br><span class="line">    const _md5hex = (s) =&gt; &#123;</span><br><span class="line">        const hash = crypto.createHash(&apos;md5&apos;)</span><br><span class="line">        hash.update(s)</span><br><span class="line">        const h = hash.digest(&apos;hex&apos;)</span><br><span class="line">        return h</span><br><span class="line">    &#125;</span><br><span class="line">    // 把 password 加上一个字符串之后再摘要</span><br><span class="line">    const hash2 = _md5hex(password + salt)</span><br><span class="line">    return hash2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="重置密码的功能"><a href="#重置密码的功能" class="headerlink" title="重置密码的功能"></a>重置密码的功能</h1><p>用户点击忘记密码,  给客户邮箱发一个 url, 并且在 query 加一串随机字符 (自己设置伪随机字符串，比如 uuid,<br>不能是有规律的值, 比如用unix 时间)<br>客户点击之后, 发送 get 请求, 判断是否 expire (发送的时间, 过期时间和现在时间对比)<br>如果ok, 就跳到重置密码页面</p>
+<h1 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h1><p>数据传输过程的任何环节, 层层路由器都可能被拦截和窃取. 用明文传输密码是绝对不安全的, 这就需要 https<br>https 是发数据的时候把页面所有的传输内容都加密了<br>https 的原理, 是非对称性加密, 把 http 的数据加密之后在浏览器和服务器之间传输.</p>
+<ul>
+<li><p><strong>非对称性加密加密算法:</strong><br>rsa, 每个人都有一对公钥和私钥<br>发数据的时候, 浏览器先用服务器的公钥加密, 公钥加密的数据只有私钥能解开, 所以服务器可以用自己的私钥解密, 服务器解密之后就可以拿到原始的 http 请求, 然后解析请求做响应. 其他任何人都无法不到原始信息.<br>服务器把浏览器的公钥拿过来, 加密响应之后再发给浏览器, 只有浏览器的私钥才能解开.</p>
+</li>
+<li><p>中间人攻击: 服务器发给服务器的请求被拦截, 导致请求并没有发送到服务器, 而是被中间拦截的人伪造服务器返回了, 而用 https 就可以避免这个情况, 因为中间人无法得到原始数据.</p>
+</li>
+<li><p>证书: 浏览器和服务器都由证书信任机构来保证 https 的进行. 解决通信之间的信任问题, 由权威机构颁发证书确认这个 url 确实属于这个公司.</p>
+</li>
+<li><p>对称性加密比较出名的是 aes<br>加密的秘钥和解密的秘钥用的是同一个, 用于 session， 需要知道原来的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">1. 加密</span><br><span class="line">// aes-256-cbc 的加密和解密时间都比较短, 是表现比较不错的算法</span><br><span class="line"></span><br><span class="line">const Encrypt = function(s, key) &#123;</span><br><span class="line">    const algorithm = &apos;aes-256-cbc&apos;</span><br><span class="line">    // 秘钥是 key, 通过秘钥加密</span><br><span class="line">    const cipher = crypto.createCipher(algorithm, key)</span><br><span class="line">    let c = cipher.update(s, &apos;utf8&apos;, &apos;hex&apos;)</span><br><span class="line">    c += cipher.final(&apos;hex&apos;)</span><br><span class="line">    console.log(&apos;加密后的信息&apos;, c)</span><br><span class="line">    return c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2. 解密</span><br><span class="line">const Decrypt = function(c, key) &#123;</span><br><span class="line">    const algorithm = &apos;aes-256-cbc&apos;</span><br><span class="line">    const decipher = crypto.createDecipher(algorithm, key)</span><br><span class="line">    // 一定要用这种累加的方式来处理</span><br><span class="line">    // 这里需要注意的是调用 update 函数之后, 返回不一定是加密后的数据</span><br><span class="line">    // 所以要先调用 update, 然后调用 final, 并且把这些结果累加起来</span><br><span class="line">    let d = decipher.update(c, &apos;hex&apos;, &apos;utf8&apos;)</span><br><span class="line">    d += decipher.final(&apos;utf8&apos;)</span><br><span class="line">    console.log(&apos;原始信息&apos;, d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="微博评论功能"><a href="#微博评论功能" class="headerlink" title="微博评论功能"></a>微博评论功能</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node6/" itemprop="url">node6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T19:05:47-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>高级版的 log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log.call(consol, t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>追加 log 内容到文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = fs.createWriteStream(path, &#123; flags: &apos;a&apos;&#125;)</span><br><span class="line">logger = new Console(output)</span><br><span class="line">logger.log(t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Object.assign(a, b) 拼接两个对象的方法, 后面的 b 会加到前面的 a 去, 并且 a 是拼接之后的对象， 如果 a，b 一样, 同名 后面 会覆盖前面的</strong></p>
+</li>
+<li>返回实例的方法就必然要用 static 方法</li>
+<li>修改东西一定要先注释，测试没有问题之后再删除, 再右键文件写local history 的label, 会记录删除了什么</li>
+<li>不要再一个函数做两个事情, 逻辑就是逻辑, 页面就是页面</li>
+<li>事不过三原则, 对象超过两个要换行, 变量调用超过两个要用更简短的变量接住</li>
+<li>写 what 不写how, 疯狂拆函数, 一个函数一件事情</li>
+</ul>
+<h1 id="nunjucks-模板"><a href="#nunjucks-模板" class="headerlink" title="nunjucks 模板"></a>nunjucks 模板</h1><p>模板引擎是把代码和生成代码的逻辑直接放在 html 中, 用于动态替换一个值或者批量生成列表, web 框架通用的套路技术.</p>
+<ul>
+<li><p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const numjucks = require(&apos;nunjucks&apos;)</span><br><span class="line"></span><br><span class="line">// 当前文件所在的目录 __dirname/templetes</span><br><span class="line"></span><br><span class="line">// 单例</span><br><span class="line">const configuredEnvironment = (() =&gt; &#123;</span><br><span class="line">    env = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (env === null) &#123;</span><br><span class="line">            const p = path.join(__dirname, &apos;templates&apos;)</span><br><span class="line">            const env = nunjucks.configure(p)</span><br><span class="line">            return env</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return env        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">const template = (path, data) =&gt; &#123;</span><br><span class="line">    const env = configuredEnvironment()</span><br><span class="line">    const r = env.render(path, data)</span><br><span class="line">    return r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语法<br>变量替换 <br>循环  </p>
+</li>
+</ul>
+<p>DSL(领域特定语言) 读到特定的字符串解析</p>
+<h1 id="单例的实现"><a href="#单例的实现" class="headerlink" title="单例的实现"></a>单例的实现</h1><p>通过 IIFE 来实现变量的一次修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constuctor() &#123;</span><br><span class="line">        this.key = &apos;test&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const single = ( () =&gt; &#123;</span><br><span class="line">    let i = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (i === null) &#123;</span><br><span class="line">            i = new Foo()</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">    &#125;)()</span><br><span class="line"></span><br><span class="line">const o1 = single()</span><br><span class="line">const o2 = single()</span><br><span class="line"></span><br><span class="line">console.log(o1 === o2) // true</span><br></pre></td></tr></table></figure></p>
+<h1 id="批量修改"><a href="#批量修改" class="headerlink" title="批量修改"></a>批量修改</h1><p>把要改的东西放到数组里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const t = &#123;&#125;</span><br><span class="line">const validNames = [</span><br><span class="line">    &apos;task&apos;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">Object.keys(form).forEach( k =&gt; &#123;</span><br><span class="line">    if (validNames.includes(k)) &#123;</span><br><span class="line">        t[k] = form[k]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="RESTFUL-与-路由方案"><a href="#RESTFUL-与-路由方案" class="headerlink" title="RESTFUL 与 路由方案"></a>RESTFUL 与 路由方案</h1><ol>
+<li><p>RESTFUL<br>把 path 当做资源, http 各种方法当做动词来操作这些资源.<br>app.get(‘/todos’)<br>app.get(‘/todo/:id’)<br>app.post(‘/todo’)<br>app.put(‘/todo’)<br>app.patch(‘/todo’)<br>app.delete(‘/todo’)</p>
+</li>
+<li><p>路由方案<br>/todo/all<br>/todo/id<br>/todo/delete<br>/todo/add<br>/todo/update</p>
+</li>
+</ol>
+<p>..</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node5/" itemprop="url">node5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T10:34:02-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧与思想"><a href="#技巧与思想" class="headerlink" title="技巧与思想"></a>技巧与思想</h1><ul>
+<li>核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作</li>
+<li>require.main 套路<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (require.main == module) &#123;</span><br><span class="line">    __main()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 require.main 的意思是只有执行这段程序所在的文件时, require.main 才是 true, 引入到其他文件的 require.main 为 true, 可以保证这段代码在别的地方不被执行</p>
+<ul>
+<li><strong>最外面不要有变量的定义, 所有东西都要用函数包起来</strong></li>
+<li><p>箭头函数与 map 的组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const s = Object.keys(mapper).map(k =&gt; `$&#123;k&#125;: $&#123;mapper[k]&#125;\r\n`).join(&apos;&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>做东西先把东西最初的东西显示出来, 改一点测一点, 不能要求一次性写完, 先宏观再微观, 从粗略到细节, 先冗余再重构到抽象.</strong></p>
+</li>
+<li>写程序的规范和模式: 一个路由专门写 view, 写页面, 一个路由专门写逻辑<code>比如写 todo 的时候先 get edit 路由, 跳转到编辑页面, 再在 edit 页面 post update 路由, 写要修改的东西</code></li>
+<li>id 传入进来的时候一定要先用 Number 转为同一个类型， 因为js 比较不同类型的时候会自动转, 这样容易出现 bug, 而且 log 字符串的数字和数值的数字打印出来是一样的.</li>
+<li><strong>要写what, 不要写how.—明确分工</strong> 数据就是 model, 关于数据的操作就应该在 model 里面改, controller 里面只需要拿到 model 给的 api 就可以行了<code>比如要更新数据, 路由函数里面不需要关心如何update, 只需要得到服务器 post 传入的数据, 调用 model 里面的 xx.update(数据) 的 api 就可以了, 具体如何 update 在专门处理数据的 model 里面做</code>, 这一步操作可以一开始就做, 也可以在 route 写好 what 之后确认程序可以运行再抽出去.</li>
+<li>数组的替换和删除可以用 splice, 对象的替换直接用 Object[value] = updatedKey  </li>
+<li>不要依赖JS 的隐试类型转换. return u !== null &amp;&amp; true</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>如果遇到status code 为 302 的时候, 浏览器会自动在 headers 里面找 Location 的对应的值 (path)， 并且会以 <strong>get</strong> 的形式再发一次请求. <code>浏览器会自动拼接 protocol, host 等等 和 Location 里面的 path, 形成一个新的页面</code></p>
+<p>301 永久重定向, 302 暂时重定向</p>
+<p>重定向的意义: redirect(‘/‘) 函数, 如果不符合规定, 浏览器帮服务器跳转到该去的地方, 比如登录了之后跳转到首页.</p>
+<p>form 表单的 content-teype: application/x-www-form-urlencoded</p>
+<h1 id="post-表单带-id-数据的方法"><a href="#post-表单带-id-数据的方法" class="headerlink" title="post 表单带 id 数据的方法"></a>post 表单带 id 数据的方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.  一致性比较强, 所有数据都在 form 里面</span><br><span class="line">&lt;form action=&quot;/todo&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;id&quot; value=&quot;&#123;&#123;id&#125;&#125;&quot; hidden&gt;  // 通过 hidden 隐藏id</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">2. 写在 path 里面, 通过 query 关键字得到</span><br><span class="line">&lt;form action=&quot;/todo/?id=&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">3. 动态路由, 这种方法要拿 id 必须要通过 parse path 的方法来拿</span><br><span class="line">&lt;form action=&quot;/todo/&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h1><p>CRUD (CREATE READ UPDATE DELETE)<br>delete 的时候需要权限验证</p>
+<h1 id="数据与用户关联"><a href="#数据与用户关联" class="headerlink" title="数据与用户关联"></a>数据与用户关联</h1><p>在各个数据之间带一个相同的数据值(连通纽带), 比如一个通用的 userId (数据库的外键)<br>一定要注意 post 传了什么数据给服务器, 共同值(纽带)在各自数据文本之中对应的 key 的名称是什么<code>比如传进来的是id, 值对应的是数据库中 key 是 userId</code></p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>方法: 函数套函数, 返回函数<br>作用:</p>
+<ol>
+<li>把函数作为参数传进来, 如果满足条件, 就执行这个函数, 如果不满足, 就执行其他的操作</li>
+<li>解决全局变量的问题, (函数变量满天飞)</li>
+<li>单例</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const loginRequired = (func) =&gt; &#123;</span><br><span class="line">    const f  = (request) =&gt; &#123;</span><br><span class="line">        const u = currentUser(request)</span><br><span class="line">        if (u === null) &#123;</span><br><span class="line">            return redirect(&apos;/&apos;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return func(request)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h1><p>多个元素合并成一个元素. Array.reduce(callback(callback的返回值, 数组的每一项), 初始值)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. forEach 方法</span><br><span class="line">headers.forEach((header) =&gt; &#123;</span><br><span class="line">    const [k, v] = header.split(&quot;: &quot;)</span><br><span class="line">    this.headers[k] = v</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">2. reduce 方法</span><br><span class="line">headers.reduce((o, item) =&gt;&#123;</span><br><span class="line">    const [k, v] = item.split(&apos;: &apos;)</span><br><span class="line">    o[k] = v</span><br><span class="line">    return o</span><br><span class="line">    &#125;, this.headers)</span><br><span class="line">// 第一次的 o 是 this.headers， 第二次的 o 是item 第一次计算的返回值</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// redux</span><br><span class="line"></span><br><span class="line">var compose = (...funcs) =&gt; &#123;</span><br><span class="line">    return funcs.reduce( (a,b) =&gt; (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// compose 的每一项参数(参数为函数), ...funcs</span><br><span class="line">// funcs 为 函数组成的数组, 用 ruduce 方法</span><br><span class="line">// 把后一个参数(函数 `b`)的返回值 `b(...args)` 作为 参数 传给 前一个函数`a`</span><br><span class="line"></span><br><span class="line">var add = (x ,y ) =&gt; x + y</span><br><span class="line">var sum = (...args) =&gt; args.reduce( (a, b) =&gt; a+b )</span><br><span class="line">var multi = (l) =&gt; l * 10</span><br><span class="line">var s = compose(multi, add)</span><br><span class="line">s(1,2)</span><br><span class="line"></span><br><span class="line">applyMiddleware( devTools(...args) ) (  persistState(...args) ) (  createStore(...args) )</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node4/" itemprop="url">node4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T00:55:06-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>数组遍历: forEach, 打断 forEach 用 return , 或者用 for of</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let model = null</span><br><span class="line">all.forEach((m) =&gt; &#123;</span><br><span class="line">  if(m[key] === value) &#123;</span><br><span class="line">      model = m</span><br><span class="line">      return false</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">return model</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter</p>
+</li>
+<li><p>a.slice(-1) 得到最后一个,如果是字符串就是字符串, 如果是数组, 就是最后一个值的数组，要得到值就用 a.slice(-1)[0] // 等于 a[a.length - 1]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = &apos;abc&apos;</span><br><span class="line">a.slice(-1) // &apos;c&apos;</span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line">a.slice(-1)       // [3]</span><br><span class="line">a.slice(-1)[0]    // 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 和 findIndex 数组找数据</p>
+</li>
+<li>看 id 的时候一定要注意 0, 因为判断的时候 0 会自动转为boolean 的 false. 用 ternery operator来改: (‘id’ in form)? form.id : -1</li>
+<li>debug打发: 根据程序流动 lo g 变量, 一步步往上走, 看期待结果和实际结果的差异.</li>
+</ul>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ul>
+<li><p>原因 为了让服务器识别不同用户发的请求，一种方式是在 url 的 path 后面加一个标记, 比如 /?id=1, 这样就可以知道是哪一个用户, （1. 但是每个人都可以发这样的请求, 别人也可以伪造这样的 path 发请求, 无法知道是否真的是这个用户发的. 2. 这样所有的其他页面的path都要加上 id 才能识别了） <strong>另一种方法就是 cookie, 就是用来确定用户身份, 利用 header 里面的 cookie 字段, 不需要在 path 里面加标记就可以识别的不同用户</strong></p>
+</li>
+<li><p>方法:</p>
+<ul>
+<li>服务器在 header 里面设置一个 Set-Cookie 字段 <code>Set-Cookie: user=xxx</code>, 发送给服务器</li>
+<li>服务器接收数据之后发现有 Set-Cookie 字段, 就会把 cookie 和内容保存到本地</li>
+<li>服务器下次发同一个 host 网页请求的时候, 会在 header 里面加上一个 Cookie 的字段 <code>Cookie: user=xxx</code></li>
+<li><p>这样服务器接收的 header 里面就会有一个 Cookie 的数据, 解析之后可以与数据库的信息比对, 看是不是同一个用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">headers[&apos;Set-Cookie&apos;] = `user=$&#123;xxx&#125;`</span><br><span class="line">// 可以设置不同的属性, 用 ; 隔开, 格式为 `id=xxx; Expires=xx; HttpOnly`</span><br><span class="line">// HttpOnly: To prevent cross-site scripting (XSS) attacks, HttpOnly cookies are inaccessible to  // JavaScript&apos;s Document.cookie API; they are only sent to the server. document.cookie = &quot;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cookie 可以放在header 里面, 也可以放在 ETag 里面 (基本不用).</p>
+</li>
+</ul>
+</li>
+<li><p>优点 解决服务器识别不同身份问题</p>
+</li>
+<li><p>问题 安全问题, 身份伪造, cookie 容易猜和模拟. <code>服务器识别用户是通过字符串的，类似于 id=1 这样的简单的cookie非常容易猜到, 这样别人可以在 header 里面模拟别人的 cookie 数据发请求, 所以 cookie 相对没有 cookie 的时候安全性高了一点, 但是还是无法解决身份伪造的问题, 这就需要用session 解决问题.</code></p>
+</li>
+</ul>
+<h1 id="session-–session-是一个理念"><a href="#session-–session-是一个理念" class="headerlink" title="session –session 是一个理念"></a>session –session 是一个理念</h1><ul>
+<li><p>目的: 为了解决 cookie 无法解决的身份伪造的问题.</p>
+</li>
+<li><p>方法: 生成一个随机的字符串给 set-cookie, 这样就不容易猜其他用户的 cookie 信息了. 与 cookie 不同的地方在于： 服务器 parse header <code>{id: xxx}</code> 之后, 需要先与保存 session 的数据库进行比对 <code>session 的保存顺序刚好颠倒一下: {xxx: id}</code>, 得到这个值(xxx)的value, 再通过这个 key 去查询或者处理数据库中这个用户的其他信息.</p>
+</li>
+<li><p>作用: 服务器通过随机字符串来验证身份， 防止身份伪造，主要是防止猜.</p>
+</li>
+<li><p>问题: 无法防止 cookie 被盗的情况(比如信息被公共 wifi 劫持) — 解决方法: 加盐加密</p>
+</li>
+<li><p>session 持久化 (重启后仍然可以用)</p>
+<ul>
+<li>cookie 保存到服务器的文件中, 请求的时候读取一下文件</li>
+<li>对称性加密, cookie 也可以存在客户端(通过对称性加密方式存, 服务器只要通过 key 把信息解析出来就好了)</li>
+</ul>
+</li>
+<li><p>session 共享 (sso) 主要用于是同一个公司不同服务器 (同一旗下不同的网站)共享 session 数据, 连接到网站服务器的时候先插一个 session 服务器, 如果没有登录就直接返回错误了</p>
+</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>服务器在接受到一个需要重定向的 url 请求后, 在返回的请求头里 status code 设置为 301 (302), header 里面设置 Location: ${新url}, 返回给客户端<br>浏览器解析 header 发现 301 就会去 header 里面去找 Location 的 url, 自动重新再用 Location 的 url 发一次新的请求</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/node3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/node3/" itemprop="url">node3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T20:51:00-08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="技巧和思想"><a href="#技巧和思想" class="headerlink" title="技巧和思想"></a>技巧和思想</h4><ul>
+<li>碰到函数的返回值的情况, 尽量用变量把这个函数接一下，这样为了方便log</li>
+<li>map 代替 for 循环</li>
+<li>ORM：数据库的对象和JSON结合起来</li>
+<li>与逻辑相关的数据操作都写在类里面, 胖 model, 瘦 controller (比如 requireLogin 写在 model 里面)</li>
+<li>元编程: 抽象类, 用程序实现编程</li>
+<li>debug 的时候最好加括号<code>${key}: (${value})</code>, 这样可以避免空格和不显示看不出来的问题</li>
+</ul>
+<h4 id="MVC-设计模式-代码分层模式"><a href="#MVC-设计模式-代码分层模式" class="headerlink" title="MVC 设计模式 代码分层模式"></a>MVC 设计模式 代码分层模式</h4><ul>
+<li>module      数据 (模型)</li>
+<li>View        显示</li>
+<li>Controller  控制器</li>
+</ul>
+<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><ul>
+<li><p>导出 module.exports , 需要用谁就暴露谁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">log = console.log.bind(console)</span><br><span class="line">module.exports == log</span><br><span class="line"></span><br><span class="line">// 另外一种</span><br><span class="line">module.log = log</span><br><span class="line"></span><br><span class="line">// 相当于</span><br><span class="line">module.exports = &#123;&#125;</span><br><span class="line">exports = module.exports</span><br><span class="line">exports.log = log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引入<br>引入自定义模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line">const log = require(&apos;./utils&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="读取固定文件夹文档"><a href="#读取固定文件夹文档" class="headerlink" title="读取固定文件夹文档"></a>读取固定文件夹文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const template = (name) =&gt; &#123;</span><br><span class="line">    const path = &apos;templates/&apos; + name</span><br><span class="line">    const options = &#123;</span><br><span class="line">        encoding: &apos;utf8&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">    const content = fs.readFileSync(path, options)</span><br><span class="line">    return content</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在页面里面加 然后用 replace 把标记改成需要的内容</p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>以前把数据和操作数据处理的方法打包是写一个对象，用 key(操作数据的函数名称): value(函数的实现) 的形式<br>现在用类来处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Model &#123;</span><br><span class="line">    constuctor() &#123;</span><br><span class="line">        this.name = &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这个相当于 es5 的 .prototype.name</span><br></pre></td></tr></table></figure>
+<ul>
+<li>static 静态方法</li>
+<li>类名.方法名()的形式调用, this 指向类， this.name 指向类名(字符串)</li>
+<li>实例方法里面 this.constructor 代表这个类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">静态方法</span><br><span class="line">Object.keys()</span><br><span class="line">实例方法(原型方法)</span><br><span class="line">var l = [] // var l = new Array()</span><br><span class="line">l.push(&apos;a&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>继承 class User extends Model (Model 的方法和属性 User 都可以使用)</p>
+<ul>
+<li><p>继承的时候要先调用 super 的方法, 才可以使用 this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class User extends Model &#123;</span><br><span class="line">    constuctor() &#123;</span><br><span class="line">        super()</span><br><span class="line">        this.username = &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建实例方法<br>用 create 代替 new 创建实例, 好处是可以都定制这个实例, 比如创建实例的同时，把这个实例保存起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">static create(form=&#123;&#125;) &#123;</span><br><span class="line">    const cls = this</span><br><span class="line">    const instance  = new cls(form // 等于 new User(form)</span><br><span class="line">    return instance</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ORM-Object-Relational-Mapping"><a href="#ORM-Object-Relational-Mapping" class="headerlink" title="ORM Object Relational Mapping"></a>ORM Object Relational Mapping</h4><p>对象关系映射（英语：(Object Relational Mapping，简称ORM），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换。数据库的对象和JSON结合起来。</p>
+<h4 id="重写-toString"><a href="#重写-toString" class="headerlink" title="重写 toString"></a>重写 toString</h4><p>原因: object.toString() 返回的是 [object Object]<br>当我们发送 html 的时候, 需要发送字符串的格式 所以要把数据里面的对象转化为字符串<br><strong>用 String.replace() 的时候， 会自动先调用 toString() 方法，如果替换的是对象, 就会变成上面的格式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;1:2&#125;</span><br><span class="line">var s = a.toString()</span><br><span class="line">console.log(s)  // 返回 [object Object]</span><br><span class="line"></span><br><span class="line">// 形象的例子</span><br><span class="line">let b = &#123;1:2&#125;</span><br><span class="line">let body = &apos;ok&apos;</span><br><span class="line">b = JSON.stringify(b)</span><br><span class="line">body = body.replace(&apos;o&apos;, b)  // 自动调用</span><br><span class="line">console.log(body)  // [object Object]k</span><br></pre></td></tr></table></figure></p>
+<p>重写就是用 JSON 把对象改成字符串形式, 给类添加一个 toString(), 覆盖掉默认的 toString()<br>这样使用 replace 的时候, 对象就可以变成一个可以显示的字符串了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">toString(s)&#123;</span><br><span class="line">    s = JSON.stringify(s)</span><br><span class="line">    return s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="图片的解析"><a href="#图片的解析" class="headerlink" title="图片的解析"></a>图片的解析</h4><p>把 html 里面的图片 src 都写成一个模式 /?file=doge.gif<br>query 是解析 request 的 path ？后面的数据, 默认是{} <code>自己实现的parse request</code><br>const filename = request.query.file</p>
+<p>记得返回的是 buffer 类型， sever 里面 socket.write(r) 返回的 r 数据可以是字符串, 也可以是 buffer 类型</p>
+<h4 id="SEVER-完整流程"><a href="#SEVER-完整流程" class="headerlink" title="SEVER 完整流程"></a>SEVER 完整流程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">配置 host 和端口</span><br><span class="line">  监听请求</span><br><span class="line">  接收请求</span><br><span class="line">      解析请求信息</span><br><span class="line">          raw</span><br><span class="line">          method</span><br><span class="line">          path</span><br><span class="line">          query</span><br><span class="line">          body</span><br><span class="line">      保存请求</span><br><span class="line">          临时保存, 用完就丢</span><br><span class="line">  处理请求</span><br><span class="line">      获取路由对象</span><br><span class="line">          path 和响应函数的映射对象</span><br><span class="line">      根据请求的 path 和对象处理请求并获得返回页面</span><br><span class="line">          routes</span><br><span class="line">              index</span><br><span class="line">                  返回页面</span><br><span class="line">              login</span><br><span class="line">                  处理 post 请求</span><br><span class="line">                      对比 post 数据和用户数据</span><br><span class="line">                      返回登录结果</span><br><span class="line">                  返回页面</span><br><span class="line">              register</span><br><span class="line">                  处理 post 请求</span><br><span class="line">                      对比 post 数据和注册规则</span><br><span class="line">                      保存合法的注册信息</span><br><span class="line">                          保存到 user.txt</span><br><span class="line">                      返回注册结果</span><br><span class="line">                  返回页面</span><br><span class="line">              message</span><br><span class="line">                  处理 post 请求</span><br><span class="line">                      将 post 的数据加入到 messageList</span><br><span class="line">                  返回页面</span><br><span class="line">                      包含留言列表</span><br><span class="line">              静态资源(图片)</span><br><span class="line">                  根据 query 的内容返回对应的资源</span><br><span class="line">      返回响应内容</span><br><span class="line">  发送响应内容</span><br><span class="line">  关闭请求连接</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/node2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/node2/" itemprop="url">node2-- http protocol</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T17:50:21-08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>IPV4 host(0,0,0,0)<br>IPV6 host(‘’)</p>
+<h4 id="规范："><a href="#规范：" class="headerlink" title="规范："></a>规范：</h4><ul>
+<li>程序只有一个入口 <code>__main()</code></li>
+<li>函数最外面只有函数的定义</li>
+<li>修改代码最好的方式是复制一份先注释，测试没问题之后再删除, 而不是先删除，写了一堆之后发现错了再 ctrl + z</li>
+</ul>
+<p><strong>后端专注的的地方在于业务逻辑： 接受数据， 处理数据， 发送数据(CRUD 增， 删， 改， 查)</strong></p>
+<h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><ol>
+<li>获取请求</li>
+<li>解析请求</li>
+<li>根据path 生成响应内容</li>
+<li>返回响应</li>
+</ol>
+<ul>
+<li><p><strong>es6 的默认参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const a = (host = &apos;&apos; post = 3000) =&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>表驱动法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const r = &#123;</span><br><span class="line">    &apos;/&apos;: function</span><br><span class="line">&#125;</span><br><span class="line">// 这里 r 不要直接调用函数, 因为在外面我们可以传参数进去</span><br><span class="line">const response = r[path]</span><br><span class="line">return response()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 更高级的写法</span><br><span class="line">let r = &#123;&#125;</span><br><span class="line">const routeMapper = &#123;</span><br><span class="line">    &apos;/&apos;: function</span><br><span class="line">&#125;</span><br><span class="line">r = Object.assign(r, routeMapper)</span><br><span class="line">const response = r[path] || error</span><br><span class="line">return response()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>iife —— immediately-invoked function expression</strong></p>
+</li>
+<li><p><strong>解决浏览器乱码问题 ———— 加charset</strong></p>
+<ul>
+<li><p>html 标签前面加meta</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset = &apos;utf-8&apos;&gt;&lt;h3&gt;好的&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 header 里面的content-type 加 charset</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>解决浏览器 loading 的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">不用s.destroy() 但是浏览器不loading 的方法</span><br><span class="line">`Content-Length: $&#123;body.byteLength&#125;`</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="读取数据的方法-fs"><a href="#读取数据的方法-fs" class="headerlink" title="读取数据的方法 fs"></a>读取数据的方法 fs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">const s = fs.readFileSync(path)</span><br><span class="line">const r = s.toString()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.   </span><br><span class="line">const options = &#123;</span><br><span class="line">    encoding: &apos;uft8&apos;,</span><br><span class="line">&#125;</span><br><span class="line">const s = fs.readFileSync(path, options)</span><br><span class="line">return s</span><br></pre></td></tr></table></figure>
+<h4 id="读取文档的方法-fs"><a href="#读取文档的方法-fs" class="headerlink" title="读取文档的方法 fs"></a>读取文档的方法 fs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">// 读取文件, 返回二进制的 buffer 类型, 如果用readFile 就必须要用回调形式了</span><br><span class="line">const body = fs.readFileSync(file)</span><br><span class="line"></span><br><span class="line">// string  转 buffer 类型, from</span><br><span class="line">const h = Buffer.from(header)</span><br><span class="line"></span><br><span class="line">// buffer 类型的拼接 concate</span><br><span class="line">const r = Buffer.concate([h, body])</span><br></pre></td></tr></table></figure>
+<h4 id="FROM-表单请求"><a href="#FROM-表单请求" class="headerlink" title="FROM 表单请求"></a>FROM 表单请求</h4><ol>
+<li><p>get 请求 信息在 path 里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action =&quot;/&quot; method=&quot;get&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;username&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;message&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">返回的响应为  GET /?username=&amp;message= HTTP/1.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>post 请求 信息在 body 里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action =&quot;/&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;username&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;message&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">返回的响应为  &quot;GET / HTTP/1.1\r\nHost: xx\r\n\r\nusername=&amp;message=&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/19/node/" itemprop="url">node1-- http protocol</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T16:58:21-08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="http-组成"><a href="#http-组成" class="headerlink" title="http 组成"></a>http 组成</h4><ul>
+<li>protocol:   http, https</li>
+<li>host:</li>
+<li>port:       80(http), 443(https)</li>
+<li>path:       /</li>
+</ul>
+<p><strong>dns 服务器 —- domain name server</strong></p>
+<p>http 协议: 超文本传输协议</p>
+<ol>
+<li>服务器按规定的格式发送给文本数据(请求)到服务器</li>
+<li>服务器解析请求, 按照规定的格式返回文本数据(响应到浏览器)到浏览器</li>
+<li>浏览器解析得到的数据， 并做相应的处理</li>
+</ol>
+<p>格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">请求头：`$&#123;method&#125; $&#123;path&#125; HTTP/1.1\r\nHost: $&#123;host&#125;\r\n\r\n$&#123;body&#125; `</span><br><span class="line">响应头:  `HTTP\1.1 $&#123;statusCode&#125; OK\r\n\r\n`</span><br></pre></td></tr></table></figure></p>
+<h4 id="CLIENT"><a href="#CLIENT" class="headerlink" title="CLIENT"></a>CLIENT</h4><ol>
+<li>建立连接</li>
+<li>监听连接</li>
+<li>接受数据</li>
+<li>处理数据</li>
+<li>发送数据</li>
+<li>关闭连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const net = require(&apos;net&apos;)</span><br><span class="line"></span><br><span class="line">const host =</span><br><span class="line">const post =</span><br><span class="line"></span><br><span class="line">const client =  new net.Socket()</span><br><span class="line"></span><br><span class="line">client.connection(port, host, () =&gt; &#123;</span><br><span class="line">    const request =</span><br><span class="line">    client.write(reuqest)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;data&apos;, (d) =&gt; &#123;</span><br><span class="line">    d.toString()</span><br><span class="line"></span><br><span class="line">    client.destroy()</span><br><span class="line">    &#125;)</span><br><span class="line">client.on(&apos;close&apos;, (d) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="SERVER"><a href="#SERVER" class="headerlink" title="SERVER"></a>SERVER</h4><ol>
+<li>配置相关参数</li>
+<li>创建服务器</li>
+<li>监听连接</li>
+<li>接受数据</li>
+<li>处理数据</li>
+<li>发送数据</li>
+<li>关闭连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const net = require(&apos;net&apos;)</span><br><span class="line"></span><br><span class="line">const host = &apos;&apos;  // IPV6</span><br><span class="line">const post =</span><br><span class="line"></span><br><span class="line">const sever = new net.Server()</span><br><span class="line"></span><br><span class="line">server.listen(port, host, () =&gt; &#123;</span><br><span class="line">    log(server.address())</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;connection&apos;, (socket) =&gt; &#123;</span><br><span class="line">    // &#123;remoteAddress, remotePort, remoteFamily&#125; = socket `**解包**`</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;data&apos;, (data) =&gt; &#123;</span><br><span class="line">    // data 返回的是一个 Buffer 类型， 用来处理二进制数据 toString()</span><br><span class="line">    const r = data.toString()</span><br><span class="line">    const response = responseFromRequest(r)</span><br><span class="line">    socket.write(response)</span><br><span class="line">    server.destroy()</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;error&apos;, (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;close&apos;, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>data 返回的是一个 Buffer 类型， 用来处理二进制数据 toString()<br>Buffer 默认是大概有 1024 个数据左右</p>
+<p>server.destroy() 如果没有的话， 浏览器会一直在loading 页面等待服务器发完数据<br>另外一种解决方法就是在header里面用 content-length 来显示多少数据 <code>如果小于发送的数据长度， 内容显示不全; 如果大于发送的数据的长度， 浏览器会一直loading</code> 一般计算方法${body.length} 或者 ${body.byteLength} <code>如果是 buffer 类型</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">eddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eddy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

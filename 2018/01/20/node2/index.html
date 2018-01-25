@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="IPV4 host(0,0,0,0)IPV6 host(‘’) 规范： 程序只有一个入口 __main() 函数最外面只有函数的定义 修改代码最好的方式是复制一份先注释，测试没问题之后再删除, 而不是先删除，写了一堆之后发现错了再 ctrl + z  后端专注的的地方在于业务逻辑： 接受数据， 处理数据， 发送数据(CRUD 增， 删， 改， 查) server 获取请求 解析请求 根据path">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node2-- http protocol">
+<meta property="og:url" content="http://yoursite.com/2018/01/20/node2/index.html">
+<meta property="og:site_name" content="node">
+<meta property="og:description" content="IPV4 host(0,0,0,0)IPV6 host(‘’) 规范： 程序只有一个入口 __main() 函数最外面只有函数的定义 修改代码最好的方式是复制一份先注释，测试没问题之后再删除, 而不是先删除，写了一堆之后发现错了再 ctrl + z  后端专注的的地方在于业务逻辑： 接受数据， 处理数据， 发送数据(CRUD 增， 删， 改， 查) server 获取请求 解析请求 根据path">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-21T01:49:08.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node2-- http protocol">
+<meta name="twitter:description" content="IPV4 host(0,0,0,0)IPV6 host(‘’) 规范： 程序只有一个入口 __main() 函数最外面只有函数的定义 修改代码最好的方式是复制一份先注释，测试没问题之后再删除, 而不是先删除，写了一堆之后发现错了再 ctrl + z  后端专注的的地方在于业务逻辑： 接受数据， 处理数据， 发送数据(CRUD 增， 删， 改， 查) server 获取请求 解析请求 根据path">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/20/node2/"/>
+
+
+
+
+
+  <title>node2-- http protocol | node</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">node</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/node2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node2-- http protocol</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T17:50:21-08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>IPV4 host(0,0,0,0)<br>IPV6 host(‘’)</p>
+<h4 id="规范："><a href="#规范：" class="headerlink" title="规范："></a>规范：</h4><ul>
+<li>程序只有一个入口 <code>__main()</code></li>
+<li>函数最外面只有函数的定义</li>
+<li>修改代码最好的方式是复制一份先注释，测试没问题之后再删除, 而不是先删除，写了一堆之后发现错了再 ctrl + z</li>
+</ul>
+<p><strong>后端专注的的地方在于业务逻辑： 接受数据， 处理数据， 发送数据(CRUD 增， 删， 改， 查)</strong></p>
+<h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><ol>
+<li>获取请求</li>
+<li>解析请求</li>
+<li>根据path 生成响应内容</li>
+<li>返回响应</li>
+</ol>
+<ul>
+<li><p><strong>es6 的默认参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const a = (host = &apos;&apos; post = 3000) =&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>表驱动法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const r = &#123;</span><br><span class="line">    &apos;/&apos;: function</span><br><span class="line">&#125;</span><br><span class="line">// 这里 r 不要直接调用函数, 因为在外面我们可以传参数进去</span><br><span class="line">const response = r[path]</span><br><span class="line">return response()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 更高级的写法</span><br><span class="line">let r = &#123;&#125;</span><br><span class="line">const routeMapper = &#123;</span><br><span class="line">    &apos;/&apos;: function</span><br><span class="line">&#125;</span><br><span class="line">r = Object.assign(r, routeMapper)</span><br><span class="line">const response = r[path] || error</span><br><span class="line">return response()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>iife —— immediately-invoked function expression</strong></p>
+</li>
+<li><p><strong>解决浏览器乱码问题 ———— 加charset</strong></p>
+<ul>
+<li><p>html 标签前面加meta</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset = &apos;utf-8&apos;&gt;&lt;h3&gt;好的&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 header 里面的content-type 加 charset</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>解决浏览器 loading 的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">不用s.destroy() 但是浏览器不loading 的方法</span><br><span class="line">`Content-Length: $&#123;body.byteLength&#125;`</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="读取数据的方法-fs"><a href="#读取数据的方法-fs" class="headerlink" title="读取数据的方法 fs"></a>读取数据的方法 fs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">const s = fs.readFileSync(path)</span><br><span class="line">const r = s.toString()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.   </span><br><span class="line">const options = &#123;</span><br><span class="line">    encoding: &apos;uft8&apos;,</span><br><span class="line">&#125;</span><br><span class="line">const s = fs.readFileSync(path, options)</span><br><span class="line">return s</span><br></pre></td></tr></table></figure>
+<h4 id="读取文档的方法-fs"><a href="#读取文档的方法-fs" class="headerlink" title="读取文档的方法 fs"></a>读取文档的方法 fs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">// 读取文件, 返回二进制的 buffer 类型, 如果用readFile 就必须要用回调形式了</span><br><span class="line">const body = fs.readFileSync(file)</span><br><span class="line"></span><br><span class="line">// string  转 buffer 类型, from</span><br><span class="line">const h = Buffer.from(header)</span><br><span class="line"></span><br><span class="line">// buffer 类型的拼接 concate</span><br><span class="line">const r = Buffer.concate([h, body])</span><br></pre></td></tr></table></figure>
+<h4 id="FROM-表单请求"><a href="#FROM-表单请求" class="headerlink" title="FROM 表单请求"></a>FROM 表单请求</h4><ol>
+<li><p>get 请求 信息在 path 里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action =&quot;/&quot; method=&quot;get&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;username&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;message&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">返回的响应为  GET /?username=&amp;message= HTTP/1.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>post 请求 信息在 body 里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action =&quot;/&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;username&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;message&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">返回的响应为  &quot;GET / HTTP/1.1\r\nHost: xx\r\n\r\nusername=&amp;message=&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/19/node/" rel="next" title="node1-- http protocol">
+                <i class="fa fa-chevron-left"></i> node1-- http protocol
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/20/node3/" rel="prev" title="node3">
+                node3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">eddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#规范："><span class="nav-number">1.</span> <span class="nav-text">规范：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#server"><span class="nav-number">2.</span> <span class="nav-text">server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取数据的方法-fs"><span class="nav-number">3.</span> <span class="nav-text">读取数据的方法 fs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取文档的方法-fs"><span class="nav-number">4.</span> <span class="nav-text">读取文档的方法 fs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FROM-表单请求"><span class="nav-number">5.</span> <span class="nav-text">FROM 表单请求</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eddy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
