@@ -229,6 +229,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/19/node/" itemprop="url">node1-- http protocol</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T16:58:21-08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="http-组成"><a href="#http-组成" class="headerlink" title="http 组成"></a>http 组成</h4><ul>
+<li>protocol:   http, https</li>
+<li>host:</li>
+<li>port:       80(http), 443(https)</li>
+<li>path:       /</li>
+</ul>
+<p><strong>dns 服务器 —- domain name server</strong></p>
+<p>http 协议: 超文本传输协议</p>
+<ol>
+<li>服务器按规定的格式发送给文本数据(请求)到服务器</li>
+<li>服务器解析请求, 按照规定的格式返回文本数据(响应到浏览器)到浏览器</li>
+<li>浏览器解析得到的数据， 并做相应的处理</li>
+</ol>
+<p>格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">请求头：`$&#123;method&#125; $&#123;path&#125; HTTP/1.1\r\nHost: $&#123;host&#125;\r\n\r\n$&#123;body&#125; `</span><br><span class="line">响应头:  `HTTP\1.1 $&#123;statusCode&#125; OK\r\n\r\n`</span><br></pre></td></tr></table></figure></p>
+<h4 id="CLIENT"><a href="#CLIENT" class="headerlink" title="CLIENT"></a>CLIENT</h4><ol>
+<li>建立连接</li>
+<li>监听连接</li>
+<li>接受数据</li>
+<li>处理数据</li>
+<li>发送数据</li>
+<li>关闭连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const net = require(&apos;net&apos;)</span><br><span class="line"></span><br><span class="line">const host =</span><br><span class="line">const post =</span><br><span class="line"></span><br><span class="line">const client =  new net.Socket()</span><br><span class="line"></span><br><span class="line">client.connection(port, host, () =&gt; &#123;</span><br><span class="line">    const request =</span><br><span class="line">    client.write(reuqest)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;data&apos;, (d) =&gt; &#123;</span><br><span class="line">    d.toString()</span><br><span class="line"></span><br><span class="line">    client.destroy()</span><br><span class="line">    &#125;)</span><br><span class="line">client.on(&apos;close&apos;, (d) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="SERVER"><a href="#SERVER" class="headerlink" title="SERVER"></a>SERVER</h4><ol>
+<li>配置相关参数</li>
+<li>创建服务器</li>
+<li>监听连接</li>
+<li>接受数据</li>
+<li>处理数据</li>
+<li>发送数据</li>
+<li>关闭连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const net = require(&apos;net&apos;)</span><br><span class="line"></span><br><span class="line">const host = &apos;&apos;  // IPV6</span><br><span class="line">const post =</span><br><span class="line"></span><br><span class="line">const sever = new net.Server()</span><br><span class="line"></span><br><span class="line">server.listen(port, host, () =&gt; &#123;</span><br><span class="line">    log(server.address())</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;connection&apos;, (socket) =&gt; &#123;</span><br><span class="line">    // &#123;remoteAddress, remotePort, remoteFamily&#125; = socket `**解包**`</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;data&apos;, (data) =&gt; &#123;</span><br><span class="line">    // data 返回的是一个 Buffer 类型， 用来处理二进制数据 toString()</span><br><span class="line">    const r = data.toString()</span><br><span class="line">    const response = responseFromRequest(r)</span><br><span class="line">    socket.write(response)</span><br><span class="line">    server.destroy()</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;error&apos;, (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">server.on(&apos;close&apos;, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>data 返回的是一个 Buffer 类型， 用来处理二进制数据 toString()<br>Buffer 默认是大概有 1024 个数据左右</p>
+<p>server.destroy() 如果没有的话， 浏览器会一直在loading 页面等待服务器发完数据<br>另外一种解决方法就是在header里面用 content-length 来显示多少数据 <code>如果小于发送的数据长度， 内容显示不全; 如果大于发送的数据的长度， 浏览器会一直loading</code> 一般计算方法${body.length} 或者 ${body.byteLength} <code>如果是 buffer 类型</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -394,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
