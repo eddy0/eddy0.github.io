@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="技巧 用 || 来判断的时候, 数值类型一定要对应  前后端分离这里只的是开发环境上的分离  普通开发模式前端写客户端, 后端写 api 服务端   问题:  前端需要搭建后端的开发环境, 然后运行后端的项目 前后端对接的时候后端改动一个地方, 前端可能需要更新项目代码, git pull 之后发现需要更新更多的代码   另外一种方式: 前后端在两个环境里面, 后端设置好 cors 解决跨域的问题">
+<meta name="description" content="url(../node/node11) 技巧 用 || 来判断的时候, 数值类型一定要对应 loginRequired在需要登录的操作加上 loginRequired, 这个情况下 request.method 有可能是 post, 也有可能是 get. 需不需要跳转页面可以用 url= , 这里 next_url 的 path 可以写在 form 表单里面得到. api 传输数据标准 12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node11">
 <meta property="og:url" content="http://yoursite.com/2018/01/25/node11/index.html">
 <meta property="og:site_name" content="node">
-<meta property="og:description" content="技巧 用 || 来判断的时候, 数值类型一定要对应  前后端分离这里只的是开发环境上的分离  普通开发模式前端写客户端, 后端写 api 服务端   问题:  前端需要搭建后端的开发环境, 然后运行后端的项目 前后端对接的时候后端改动一个地方, 前端可能需要更新项目代码, git pull 之后发现需要更新更多的代码   另外一种方式: 前后端在两个环境里面, 后端设置好 cors 解决跨域的问题">
+<meta property="og:description" content="url(../node/node11) 技巧 用 || 来判断的时候, 数值类型一定要对应 loginRequired在需要登录的操作加上 loginRequired, 这个情况下 request.method 有可能是 post, 也有可能是 get. 需不需要跳转页面可以用 url= , 这里 next_url 的 path 可以写在 form 表单里面得到. api 传输数据标准 12345">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-26T01:17:54.648Z">
+<meta property="og:updated_time" content="2018-01-30T21:31:26.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node11">
-<meta name="twitter:description" content="技巧 用 || 来判断的时候, 数值类型一定要对应  前后端分离这里只的是开发环境上的分离  普通开发模式前端写客户端, 后端写 api 服务端   问题:  前端需要搭建后端的开发环境, 然后运行后端的项目 前后端对接的时候后端改动一个地方, 前端可能需要更新项目代码, git pull 之后发现需要更新更多的代码   另外一种方式: 前后端在两个环境里面, 后端设置好 cors 解决跨域的问题">
+<meta name="twitter:description" content="url(../node/node11) 技巧 用 || 来判断的时候, 数值类型一定要对应 loginRequired在需要登录的操作加上 loginRequired, 这个情况下 request.method 有可能是 post, 也有可能是 get. 需不需要跳转页面可以用 url= , 这里 next_url 的 path 可以写在 form 表单里面得到. api 传输数据标准 12345">
 
 
 
@@ -299,8 +299,48 @@
       
 
       
-        <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+        <p>url(../node/node11)</p>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
 <li>用 || 来判断的时候, 数值类型一定要对应</li>
+<li>loginRequired<br>在需要登录的操作加上 loginRequired, 这个情况下 request.method 有可能是 post, 也有可能是 get.</li>
+<li>需不需要跳转页面可以用 <base_url>url=<next_url> , 这里 next_url 的 path 可以写在 form 表单里面得到.</next_url></base_url></li>
+<li><p>api 传输数据标准</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r.sucess?r.data : r.message</span><br><span class="line">dict = &#123;</span><br><span class="line">    success: true,</span><br><span class="line">    data: data,</span><br><span class="line">    message:&apos;&apos;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>http 模块的 protocol 是 ‘http:’</p>
+</li>
+<li>配置环境变量 process.env 查看环境变量, 也可以设置环境变量</li>
+</ul>
+<h1 id="express-技术"><a href="#express-技术" class="headerlink" title="express 技术"></a>express 技术</h1><ul>
+<li>app.use((request, response) =&gt; {})</li>
+</ul>
+<h1 id="package-json-scriptes"><a href="#package-json-scriptes" class="headerlink" title="package.json scriptes"></a>package.json scriptes</h1><p>思考: 是否可以通过 fs.watch 来实现保存自动刷新页面</p>
+<ul>
+<li>yarn run dev  监听项目变化, 自动重启<br>dev: nodemon app.js</li>
+<li>yarn run start<br>start: om2 start app.js</li>
+</ul>
+<h1 id="nunjucks"><a href="#nunjucks" class="headerlink" title="nunjucks"></a>nunjucks</h1><ul>
+<li>管道<br>上一个的输出作为下一个的输入</li>
+</ul>
+<h1 id="node-循环依赖的问题的解决"><a href="#node-循环依赖的问题的解决" class="headerlink" title="node 循环依赖的问题的解决"></a>node 循环依赖的问题的解决</h1><p>在要使用的函数里面 require 其他文件的函数</p>
+<h1 id="linux-修改权限"><a href="#linux-修改权限" class="headerlink" title="linux 修改权限"></a>linux 修改权限</h1><ul>
+<li>更改用户组<br>sudo chown -R ubuntu:ubuntu /home/ubuntu</li>
+<li>修改用户组权限<br>chmode -R g-rwx /home/ubuntu/.ssh<br>chmode -R o-rwx /home/ubuntu/.ssh</li>
+<li>复制文件到 root<br>cp /home/ubuntu/.ssh/authorized_keys  /root/.ssh/authorized_keys</li>
+<li>如果显示permission denied 就加 sudo</li>
+<li>也可以给用户规定权限写死 不让使用 sudo</li>
+</ul>
+<h1 id="api-的形式传输数据"><a href="#api-的形式传输数据" class="headerlink" title="api 的形式传输数据"></a>api 的形式传输数据</h1><ul>
+<li>减少数据量, 加快响应速度</li>
+<li>更加自由</li>
+</ul>
+<h1 id="前端两种处理报错的方式"><a href="#前端两种处理报错的方式" class="headerlink" title="前端两种处理报错的方式"></a>前端两种处理报错的方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. ajax(&#123;</span><br><span class="line">    url: url,</span><br><span class="line">    method: method,</span><br><span class="line">    data: data,</span><br><span class="line">    success: function(r)&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">    error: function(e)&#123;</span><br><span class="line">            // 406</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">2. 第二种推荐</span><br><span class="line">    sucess: if (r.success)&#123;</span><br><span class="line">                sucessResponse(r.data)</span><br><span class="line">             &#125; else&#123;</span><br><span class="line">                errorResponse(r.message)</span><br><span class="line">             &#125;</span><br><span class="line">    error: function(e)&#123;</span><br><span class="line">            // globalErrorResponse</span><br><span class="line">            var r = &#123;</span><br><span class="line">                success: false,</span><br><span class="line">                data: null,</span><br><span class="line">                message: &apos;error&apos;</span><br><span class="line">            &#125;</span><br><span class="line">            globalErrorResponse(r)</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><ul>
+<li>标志报错信息: No ‘access-control-allow-origin’</li>
+<li>端口不一样就会跨域, protocol, host, port</li>
+<li>jonsp 也要后端配合, 只能处理 get 方式的请求</li>
+<li>解决方式 cors<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node 配置 cors, 就直接可以配置 cors了</span><br><span class="line">const cors = require(&apos;cors&apos;)</span><br><span class="line">app.use(cors())</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h1 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h1><p>这里只的是开发环境上的分离</p>
 <ol>
@@ -309,7 +349,7 @@
 <ul>
 <li><p>问题:</p>
 <ul>
-<li>前端需要搭建后端的开发环境, 然后运行后端的项目</li>
+<li>前端需要搭建后端的开发环境, 然后运行后端的项目, 瘸腿.</li>
 <li>前后端对接的时候后端改动一个地方, 前端可能需要更新项目代码, git pull 之后发现需要更新更多的代码</li>
 </ul>
 </li>
@@ -329,14 +369,13 @@
 <li><p>流程:</p>
 <ul>
 <li>node 把请求发送到 api server, api server 处理好请求并且返回响应</li>
-<li>node 接受 api server 放回的响应, 并且把这个响应发送到浏览器端</li>
+<li>node 接受 api server 返回的响应, 并且把这个响应发送到浏览器端</li>
 <li>浏览器接受响应, 渲染页面</li>
 </ul>
 </li>
 </ul>
-<h1 id="express-技术"><a href="#express-技术" class="headerlink" title="express 技术"></a>express 技术</h1><ul>
-<li>app.use((request, response) =&gt; {})</li>
-</ul>
+<h1 id="前端自己开发环境-独立配置-bridge"><a href="#前端自己开发环境-独立配置-bridge" class="headerlink" title="前端自己开发环境, 独立配置, bridge"></a>前端自己开发环境, 独立配置, bridge</h1><p>作用: 原样模拟客户端的请求发送到服务器<br>用node 使用 http 模块,<br>express 和 nunjuncks 相互使用<br>不管发什么请求, 都有一些基本的配置项 apiOptions<br>app.all 可以匹配 api 下面的所有请求 app.all(/api/*)  </p>
+<p>//</p>
 
       
     </div>
@@ -370,6 +409,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/30/node11-1/" rel="prev" title="node12">
+                node12 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -446,7 +489,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -483,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">1.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前后端分离"><span class="nav-number">2.</span> <span class="nav-text">前后端分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#express-技术"><span class="nav-number">3.</span> <span class="nav-text">express 技术</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">1.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#express-技术"><span class="nav-number">2.</span> <span class="nav-text">express 技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#package-json-scriptes"><span class="nav-number">3.</span> <span class="nav-text">package.json scriptes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nunjucks"><span class="nav-number">4.</span> <span class="nav-text">nunjucks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#node-循环依赖的问题的解决"><span class="nav-number">5.</span> <span class="nav-text">node 循环依赖的问题的解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-修改权限"><span class="nav-number">6.</span> <span class="nav-text">linux 修改权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#api-的形式传输数据"><span class="nav-number">7.</span> <span class="nav-text">api 的形式传输数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端两种处理报错的方式"><span class="nav-number">8.</span> <span class="nav-text">前端两种处理报错的方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">9.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前后端分离"><span class="nav-number">10.</span> <span class="nav-text">前后端分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端自己开发环境-独立配置-bridge"><span class="nav-number">11.</span> <span class="nav-text">前端自己开发环境, 独立配置, bridge</span></a></li></ol></div>
             
 
           </div>
