@@ -229,6 +229,485 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node6/" itemprop="url">node6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T19:05:47-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>高级版的 log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log.call(consol, t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>追加 log 内容到文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = fs.createWriteStream(path, &#123; flags: &apos;a&apos;&#125;)</span><br><span class="line">logger = new Console(output)</span><br><span class="line">logger.log(t, ...args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Object.assign(a, b) 拼接两个对象的方法, 后面的 b 会加到前面的 a 去, 并且 a 是拼接之后的对象， 如果 a，b 一样, 同名 后面 会覆盖前面的</strong></p>
+</li>
+<li>返回实例的方法就必然要用 static 方法</li>
+<li>修改东西一定要先注释，测试没有问题之后再删除, 再右键文件写local history 的label, 会记录删除了什么</li>
+<li>不要再一个函数做两个事情, 逻辑就是逻辑, 页面就是页面</li>
+<li>事不过三原则, 对象超过两个要换行, 变量调用超过两个要用更简短的变量接住</li>
+<li>写 what 不写how, 疯狂拆函数, 一个函数一件事情</li>
+</ul>
+<h1 id="nunjucks-模板"><a href="#nunjucks-模板" class="headerlink" title="nunjucks 模板"></a>nunjucks 模板</h1><p>模板引擎是把代码和生成代码的逻辑直接放在 html 中, 用于动态替换一个值或者批量生成列表, web 框架通用的套路技术.</p>
+<ul>
+<li><p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const numjucks = require(&apos;nunjucks&apos;)</span><br><span class="line"></span><br><span class="line">// 当前文件所在的目录 __dirname/templetes</span><br><span class="line"></span><br><span class="line">// 单例</span><br><span class="line">const configuredEnvironment = (() =&gt; &#123;</span><br><span class="line">    env = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (env === null) &#123;</span><br><span class="line">            const p = path.join(__dirname, &apos;templates&apos;)</span><br><span class="line">            const env = nunjucks.configure(p)</span><br><span class="line">            return env</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return env        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">const template = (path, data) =&gt; &#123;</span><br><span class="line">    const env = configuredEnvironment()</span><br><span class="line">    const r = env.render(path, data)</span><br><span class="line">    return r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语法<br>变量替换 <br>循环  </p>
+</li>
+</ul>
+<p>DSL(领域特定语言) 读到特定的字符串解析</p>
+<h1 id="单例的实现"><a href="#单例的实现" class="headerlink" title="单例的实现"></a>单例的实现</h1><p>通过 IIFE 来实现变量的一次修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constuctor() &#123;</span><br><span class="line">        this.key = &apos;test&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const single = ( () =&gt; &#123;</span><br><span class="line">    let i = null</span><br><span class="line">    const f = () =&gt; &#123;</span><br><span class="line">        if (i === null) &#123;</span><br><span class="line">            i = new Foo()</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">    &#125;)()</span><br><span class="line"></span><br><span class="line">const o1 = single()</span><br><span class="line">const o2 = single()</span><br><span class="line"></span><br><span class="line">console.log(o1 === o2) // true</span><br></pre></td></tr></table></figure></p>
+<h1 id="批量修改"><a href="#批量修改" class="headerlink" title="批量修改"></a>批量修改</h1><p>把要改的东西放到数组里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const t = &#123;&#125;</span><br><span class="line">const validNames = [</span><br><span class="line">    &apos;task&apos;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">Object.keys(form).forEach( k =&gt; &#123;</span><br><span class="line">    if (validNames.includes(k)) &#123;</span><br><span class="line">        t[k] = form[k]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="RESTFUL-与-路由方案"><a href="#RESTFUL-与-路由方案" class="headerlink" title="RESTFUL 与 路由方案"></a>RESTFUL 与 路由方案</h1><ol>
+<li><p>RESTFUL<br>把 path 当做资源, http 各种方法当做动词来操作这些资源.<br>app.get(‘/todos’)<br>app.get(‘/todo/:id’)<br>app.post(‘/todo’)<br>app.put(‘/todo’)<br>app.patch(‘/todo’)<br>app.delete(‘/todo’)</p>
+</li>
+<li><p>路由方案<br>/todo/all<br>/todo/id<br>/todo/delete<br>/todo/add<br>/todo/update</p>
+</li>
+</ol>
+<p>..</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node5/" itemprop="url">node5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T10:34:02-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧与思想"><a href="#技巧与思想" class="headerlink" title="技巧与思想"></a>技巧与思想</h1><ul>
+<li>核心: 对数据进行 CRUD 这几个操作, 很多数据要处理, 这些数据之间有关联, 如何通过关联数据取到其他数据， 对其他数据进行操作</li>
+<li>require.main 套路<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (require.main == module) &#123;</span><br><span class="line">    __main()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当 文件的代码被其他文件 require 引入的时候, 其实是把代码从上往下执行了一遍, 用 require.main 的意思是只有执行这段程序所在的文件时, require.main 才是 true, 引入到其他文件的 require.main 为 true, 可以保证这段代码在别的地方不被执行</p>
+<ul>
+<li><strong>最外面不要有变量的定义, 所有东西都要用函数包起来</strong></li>
+<li><p>箭头函数与 map 的组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const s = Object.keys(mapper).map(k =&gt; `$&#123;k&#125;: $&#123;mapper[k]&#125;\r\n`).join(&apos;&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>做东西先把东西最初的东西显示出来, 改一点测一点, 不能要求一次性写完, 先宏观再微观, 从粗略到细节, 先冗余再重构到抽象.</strong></p>
+</li>
+<li>写程序的规范和模式: 一个路由专门写 view, 写页面, 一个路由专门写逻辑<code>比如写 todo 的时候先 get edit 路由, 跳转到编辑页面, 再在 edit 页面 post update 路由, 写要修改的东西</code></li>
+<li>id 传入进来的时候一定要先用 Number 转为同一个类型， 因为js 比较不同类型的时候会自动转, 这样容易出现 bug, 而且 log 字符串的数字和数值的数字打印出来是一样的.</li>
+<li><strong>要写what, 不要写how.—明确分工</strong> 数据就是 model, 关于数据的操作就应该在 model 里面改, controller 里面只需要拿到 model 给的 api 就可以行了<code>比如要更新数据, 路由函数里面不需要关心如何update, 只需要得到服务器 post 传入的数据, 调用 model 里面的 xx.update(数据) 的 api 就可以了, 具体如何 update 在专门处理数据的 model 里面做</code>, 这一步操作可以一开始就做, 也可以在 route 写好 what 之后确认程序可以运行再抽出去.</li>
+<li>数组的替换和删除可以用 splice, 对象的替换直接用 Object[value] = updatedKey  </li>
+<li>不要依赖JS 的隐试类型转换. return u !== null &amp;&amp; true</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>如果遇到status code 为 302 的时候, 浏览器会自动在 headers 里面找 Location 的对应的值 (path)， 并且会以 <strong>get</strong> 的形式再发一次请求. <code>浏览器会自动拼接 protocol, host 等等 和 Location 里面的 path, 形成一个新的页面</code></p>
+<p>301 永久重定向, 302 暂时重定向</p>
+<p>重定向的意义: redirect(‘/‘) 函数, 如果不符合规定, 浏览器帮服务器跳转到该去的地方, 比如登录了之后跳转到首页.</p>
+<p>form 表单的 content-teype: application/x-www-form-urlencoded</p>
+<h1 id="post-表单带-id-数据的方法"><a href="#post-表单带-id-数据的方法" class="headerlink" title="post 表单带 id 数据的方法"></a>post 表单带 id 数据的方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.  一致性比较强, 所有数据都在 form 里面</span><br><span class="line">&lt;form action=&quot;/todo&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;input name=&quot;id&quot; value=&quot;&#123;&#123;id&#125;&#125;&quot; hidden&gt;  // 通过 hidden 隐藏id</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">2. 写在 path 里面, 通过 query 关键字得到</span><br><span class="line">&lt;form action=&quot;/todo/?id=&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">3. 动态路由, 这种方法要拿 id 必须要通过 parse path 的方法来拿</span><br><span class="line">&lt;form action=&quot;/todo/&#123;&#123;id&#125;&#125;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h1><p>CRUD (CREATE READ UPDATE DELETE)<br>delete 的时候需要权限验证</p>
+<h1 id="数据与用户关联"><a href="#数据与用户关联" class="headerlink" title="数据与用户关联"></a>数据与用户关联</h1><p>在各个数据之间带一个相同的数据值(连通纽带), 比如一个通用的 userId (数据库的外键)<br>一定要注意 post 传了什么数据给服务器, 共同值(纽带)在各自数据文本之中对应的 key 的名称是什么<code>比如传进来的是id, 值对应的是数据库中 key 是 userId</code></p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>方法: 函数套函数, 返回函数<br>作用:</p>
+<ol>
+<li>把函数作为参数传进来, 如果满足条件, 就执行这个函数, 如果不满足, 就执行其他的操作</li>
+<li>解决全局变量的问题, (函数变量满天飞)</li>
+<li>单例</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const loginRequired = (func) =&gt; &#123;</span><br><span class="line">    const f  = (request) =&gt; &#123;</span><br><span class="line">        const u = currentUser(request)</span><br><span class="line">        if (u === null) &#123;</span><br><span class="line">            return redirect(&apos;/&apos;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return func(request)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h1><p>多个元素合并成一个元素. Array.reduce(callback(callback的返回值, 数组的每一项), 初始值)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. forEach 方法</span><br><span class="line">headers.forEach((header) =&gt; &#123;</span><br><span class="line">    const [k, v] = header.split(&quot;: &quot;)</span><br><span class="line">    this.headers[k] = v</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">2. reduce 方法</span><br><span class="line">headers.reduce((o, item) =&gt;&#123;</span><br><span class="line">    const [k, v] = item.split(&apos;: &apos;)</span><br><span class="line">    o[k] = v</span><br><span class="line">    return o</span><br><span class="line">    &#125;, this.headers)</span><br><span class="line">// 第一次的 o 是 this.headers， 第二次的 o 是item 第一次计算的返回值</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// redux</span><br><span class="line"></span><br><span class="line">var compose = (...funcs) =&gt; &#123;</span><br><span class="line">    return funcs.reduce( (a,b) =&gt; (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// compose 的每一项参数(参数为函数), ...funcs</span><br><span class="line">// funcs 为 函数组成的数组, 用 ruduce 方法</span><br><span class="line">// 把后一个参数(函数 `b`)的返回值 `b(...args)` 作为 参数 传给 前一个函数`a`</span><br><span class="line"></span><br><span class="line">var add = (x ,y ) =&gt; x + y</span><br><span class="line">var sum = (...args) =&gt; args.reduce( (a, b) =&gt; a+b )</span><br><span class="line">var multi = (l) =&gt; l * 10</span><br><span class="line">var s = compose(multi, add)</span><br><span class="line">s(1,2)</span><br><span class="line"></span><br><span class="line">applyMiddleware( devTools(...args) ) (  persistState(...args) ) (  createStore(...args) )</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/node4/" itemprop="url">node4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T00:55:06-08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>数组遍历: forEach, 打断 forEach 用 return , 或者用 for of</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let model = null</span><br><span class="line">all.forEach((m) =&gt; &#123;</span><br><span class="line">  if(m[key] === value) &#123;</span><br><span class="line">      model = m</span><br><span class="line">      return false</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">return model</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter</p>
+</li>
+<li><p>a.slice(-1) 得到最后一个,如果是字符串就是字符串, 如果是数组, 就是最后一个值的数组，要得到值就用 a.slice(-1)[0] // 等于 a[a.length - 1]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = &apos;abc&apos;</span><br><span class="line">a.slice(-1) // &apos;c&apos;</span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line">a.slice(-1)       // [3]</span><br><span class="line">a.slice(-1)[0]    // 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 和 findIndex 数组找数据</p>
+</li>
+<li>看 id 的时候一定要注意 0, 因为判断的时候 0 会自动转为boolean 的 false. 用 ternery operator来改: (‘id’ in form)? form.id : -1</li>
+<li>debug打发: 根据程序流动 lo g 变量, 一步步往上走, 看期待结果和实际结果的差异.</li>
+</ul>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ul>
+<li><p>原因 为了让服务器识别不同用户发的请求，一种方式是在 url 的 path 后面加一个标记, 比如 /?id=1, 这样就可以知道是哪一个用户, （1. 但是每个人都可以发这样的请求, 别人也可以伪造这样的 path 发请求, 无法知道是否真的是这个用户发的. 2. 这样所有的其他页面的path都要加上 id 才能识别了） <strong>另一种方法就是 cookie, 就是用来确定用户身份, 利用 header 里面的 cookie 字段, 不需要在 path 里面加标记就可以识别的不同用户</strong></p>
+</li>
+<li><p>方法:</p>
+<ul>
+<li>服务器在 header 里面设置一个 Set-Cookie 字段 <code>Set-Cookie: user=xxx</code>, 发送给服务器</li>
+<li>服务器接收数据之后发现有 Set-Cookie 字段, 就会把 cookie 和内容保存到本地</li>
+<li>服务器下次发同一个 host 网页请求的时候, 会在 header 里面加上一个 Cookie 的字段 <code>Cookie: user=xxx</code></li>
+<li><p>这样服务器接收的 header 里面就会有一个 Cookie 的数据, 解析之后可以与数据库的信息比对, 看是不是同一个用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">headers[&apos;Set-Cookie&apos;] = `user=$&#123;xxx&#125;`</span><br><span class="line">// 可以设置不同的属性, 用 ; 隔开, 格式为 `id=xxx; Expires=xx; HttpOnly`</span><br><span class="line">// HttpOnly: To prevent cross-site scripting (XSS) attacks, HttpOnly cookies are inaccessible to  // JavaScript&apos;s Document.cookie API; they are only sent to the server. document.cookie = &quot;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cookie 可以放在header 里面, 也可以放在 ETag 里面 (基本不用).</p>
+</li>
+</ul>
+</li>
+<li><p>优点 解决服务器识别不同身份问题</p>
+</li>
+<li><p>问题 安全问题, 身份伪造, cookie 容易猜和模拟. <code>服务器识别用户是通过字符串的，类似于 id=1 这样的简单的cookie非常容易猜到, 这样别人可以在 header 里面模拟别人的 cookie 数据发请求, 所以 cookie 相对没有 cookie 的时候安全性高了一点, 但是还是无法解决身份伪造的问题, 这就需要用session 解决问题.</code></p>
+</li>
+</ul>
+<h1 id="session-–session-是一个理念"><a href="#session-–session-是一个理念" class="headerlink" title="session –session 是一个理念"></a>session –session 是一个理念</h1><ul>
+<li><p>目的: 为了解决 cookie 无法解决的身份伪造的问题.</p>
+</li>
+<li><p>方法: 生成一个随机的字符串给 set-cookie, 这样就不容易猜其他用户的 cookie 信息了. 与 cookie 不同的地方在于： 服务器 parse header <code>{id: xxx}</code> 之后, 需要先与保存 session 的数据库进行比对 <code>session 的保存顺序刚好颠倒一下: {xxx: id}</code>, 得到这个值(xxx)的value, 再通过这个 key 去查询或者处理数据库中这个用户的其他信息.</p>
+</li>
+<li><p>作用: 服务器通过随机字符串来验证身份， 防止身份伪造，主要是防止猜.</p>
+</li>
+<li><p>问题: 无法防止 cookie 被盗的情况(比如信息被公共 wifi 劫持) — 解决方法: 加盐加密</p>
+</li>
+<li><p>session 持久化 (重启后仍然可以用)</p>
+<ul>
+<li>cookie 保存到服务器的文件中, 请求的时候读取一下文件</li>
+<li>对称性加密, cookie 也可以存在客户端(通过对称性加密方式存, 服务器只要通过 key 把信息解析出来就好了)</li>
+</ul>
+</li>
+<li><p>session 共享 (sso) 主要用于是同一个公司不同服务器 (同一旗下不同的网站)共享 session 数据, 连接到网站服务器的时候先插一个 session 服务器, 如果没有登录就直接返回错误了</p>
+</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>服务器在接受到一个需要重定向的 url 请求后, 在返回的请求头里 status code 设置为 301 (302), header 里面设置 Location: ${新url}, 返回给客户端<br>浏览器解析 header 发现 301 就会去 header 里面去找 Location 的 url, 自动重新再用 Location 的 url 发一次新的请求</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/node3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -881,7 +1360,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
