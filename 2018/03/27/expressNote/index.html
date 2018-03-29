@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="express node," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="express res.locals123456789101112res.locals = &amp;#123;  name: &apos;local&apos;,  message: &apos;ok&apos;&amp;#125;res.render(&apos;html&apos;)// 在 html中, 可以直接在模板字符串里面得到 local 的值 &amp;#123;&amp;#123; name &amp;#125;&amp;#125;// 一般与 session一起用response.l">
+<meta name="keywords" content="express node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="expressNote">
 <meta property="og:url" content="http://yoursite.com/2018/03/27/expressNote/index.html">
 <meta property="og:site_name" content="node">
+<meta property="og:description" content="express res.locals123456789101112res.locals = &amp;#123;  name: &apos;local&apos;,  message: &apos;ok&apos;&amp;#125;res.render(&apos;html&apos;)// 在 html中, 可以直接在模板字符串里面得到 local 的值 &amp;#123;&amp;#123; name &amp;#125;&amp;#125;// 一般与 session一起用response.l">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-27T22:15:43.933Z">
+<meta property="og:updated_time" content="2018-03-27T22:23:36.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="expressNote">
+<meta name="twitter:description" content="express res.locals123456789101112res.locals = &amp;#123;  name: &apos;local&apos;,  message: &apos;ok&apos;&amp;#125;res.render(&apos;html&apos;)// 在 html中, 可以直接在模板字符串里面得到 local 的值 &amp;#123;&amp;#123; name &amp;#125;&amp;#125;// 一般与 session一起用response.l">
 
 
 
@@ -296,7 +300,8 @@
       
 
       
-        
+        <h1 id="express-res-locals"><a href="#express-res-locals" class="headerlink" title="express res.locals"></a>express res.locals</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res.locals = &#123;</span><br><span class="line">  name: <span class="string">'local'</span>,</span><br><span class="line">  message: <span class="string">'ok'</span></span><br><span class="line">&#125;</span><br><span class="line">res.render(<span class="string">'html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 html中, 可以直接在模板字符串里面得到 local 的值 &#123;&#123; name &#125;&#125;</span></span><br><span class="line"><span class="comment">// 一般与 session一起用</span></span><br><span class="line">response.locals.flash =  request.session.flash</span><br><span class="line"><span class="keyword">delete</span> request.session.flash</span><br><span class="line">next</span><br><span class="line"><span class="comment">// &#123;&#123; flash.message   &#125;&#125;   &#123;&#123; flash.name  &#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -310,6 +315,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/express-node/" rel="tag"># express node</a>
+          
+        </div>
       
 
       
@@ -380,8 +391,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -405,6 +425,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
 
           </nav>
 
@@ -423,6 +452,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#express-res-locals"><span class="nav-number">1.</span> <span class="nav-text">express res.locals</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

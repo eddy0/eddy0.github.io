@@ -300,7 +300,8 @@
       
         
           
-            
+            <h1 id="express-res-locals"><a href="#express-res-locals" class="headerlink" title="express res.locals"></a>express res.locals</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res.locals = &#123;</span><br><span class="line">  name: <span class="string">'local'</span>,</span><br><span class="line">  message: <span class="string">'ok'</span></span><br><span class="line">&#125;</span><br><span class="line">res.render(<span class="string">'html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 html中, 可以直接在模板字符串里面得到 local 的值 &#123;&#123; name &#125;&#125;</span></span><br><span class="line"><span class="comment">// 一般与 session一起用</span></span><br><span class="line">response.locals.flash =  request.session.flash</span><br><span class="line"><span class="keyword">delete</span> request.session.flash</span><br><span class="line">next</span><br><span class="line"><span class="comment">// &#123;&#123; flash.message   &#125;&#125;   &#123;&#123; flash.name  &#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1966,6 +1967,15 @@ echo</code>pwd` 输出的是 pwd 命令执行的结果, 相当于一个变量</p
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
