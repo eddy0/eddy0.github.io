@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="技巧 数组遍历: forEach, 打断 forEach 用 return , 或者用 for of 12345678let model = nullall.forEach((m) =&amp;gt; &amp;#123;  if(m[key] === value) &amp;#123;      model = m      return false  &amp;#125;  &amp;#125;)return model  filt">
+<meta name="description" content="React Native特点 Micro-animations view hierarchies deliberate route transitions strategic caching  app 和 web 的区别 web on the web you’re typically mapping some URL to a specific UI Make the URL your first">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node4">
-<meta property="og:url" content="http://yoursite.com/2018/01/21/node4/index.html">
+<meta property="og:title" content="Native">
+<meta property="og:url" content="http://yoursite.com/2018/05/12/react-native-1/index.html">
 <meta property="og:site_name" content="node">
-<meta property="og:description" content="技巧 数组遍历: forEach, 打断 forEach 用 return , 或者用 for of 12345678let model = nullall.forEach((m) =&amp;gt; &amp;#123;  if(m[key] === value) &amp;#123;      model = m      return false  &amp;#125;  &amp;#125;)return model  filt">
+<meta property="og:description" content="React Native特点 Micro-animations view hierarchies deliberate route transitions strategic caching  app 和 web 的区别 web on the web you’re typically mapping some URL to a specific UI Make the URL your first">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-21T17:32:10.822Z">
+<meta property="og:updated_time" content="2018-05-13T05:04:17.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node4">
-<meta name="twitter:description" content="技巧 数组遍历: forEach, 打断 forEach 用 return , 或者用 for of 12345678let model = nullall.forEach((m) =&amp;gt; &amp;#123;  if(m[key] === value) &amp;#123;      model = m      return false  &amp;#125;  &amp;#125;)return model  filt">
+<meta name="twitter:title" content="Native">
+<meta name="twitter:description" content="React Native特点 Micro-animations view hierarchies deliberate route transitions strategic caching  app 和 web 的区别 web on the web you’re typically mapping some URL to a specific UI Make the URL your first">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/21/node4/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/12/react-native-1/"/>
 
 
 
 
 
-  <title>node4 | node</title>
+  <title>Native | node</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/node4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/react-native-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="eddy">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node4</h1>
+          <h1 class="post-title" itemprop="name headline">Native</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T00:55:06-08:00">
-                2018-01-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T21:31:26-07:00">
+                2018-05-12
               </time>
             
 
@@ -299,59 +299,48 @@
       
 
       
-        <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
-<li><p>数组遍历: forEach, 打断 forEach 用 return , 或者用 for of</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let model = null</span><br><span class="line">all.forEach((m) =&gt; &#123;</span><br><span class="line">  if(m[key] === value) &#123;</span><br><span class="line">      model = m</span><br><span class="line">      return false</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">return model</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>filter</p>
-</li>
-<li><p>a.slice(-1) 得到最后一个,如果是字符串就是字符串, 如果是数组, 就是最后一个值的数组，要得到值就用 a.slice(-1)[0] // 等于 a[a.length - 1]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = &apos;abc&apos;</span><br><span class="line">a.slice(-1) // &apos;c&apos;</span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line">a.slice(-1)       // [3]</span><br><span class="line">a.slice(-1)[0]    // 3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find 和 findIndex 数组找数据</p>
-</li>
-<li>看 id 的时候一定要注意 0, 因为判断的时候 0 会自动转为boolean 的 false. 用 ternery operator来改: (‘id’ in form)? form.id : -1</li>
-<li>debug打发: 根据程序流动 lo g 变量, 一步步往上走, 看期待结果和实际结果的差异.</li>
+        <h1 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h1><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>Micro-animations</li>
+<li>view hierarchies</li>
+<li>deliberate route transitions</li>
+<li>strategic caching</li>
 </ul>
-<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ul>
-<li><p>原因 为了让服务器识别不同用户发的请求，一种方式是在 url 的 path 后面加一个标记, 比如 /?id=1, 这样就可以知道是哪一个用户, （1. 但是每个人都可以发这样的请求, 别人也可以伪造这样的 path 发请求, 无法知道是否真的是这个用户发的. 2. 这样所有的其他页面的path都要加上 id 才能识别了） <strong>另一种方法就是 cookie, 就是用来确定用户身份, 利用 header 里面的 cookie 字段, 不需要在 path 里面加标记就可以识别的不同用户</strong></p>
+<h4 id="app-和-web-的区别"><a href="#app-和-web-的区别" class="headerlink" title="app 和 web 的区别"></a>app 和 web 的区别</h4><ul>
+<li>web<ol>
+<li>on the web you’re typically mapping some URL to a specific UI</li>
+<li>Make the URL your first thought, not an after-thought.</li>
+</ol>
 </li>
-<li><p>方法:</p>
+<li>native app<ol>
+<li>think of your routes in terms of layers rather than URL to UI mappings.</li>
+<li>These routing layers will structure themselves in a stack format, When you transition between routes in React Native you’re essentially just pushing or popping a new route onto or from the route stack.</li>
+<li>need to think about how one route will transition into the next. —-scene configurations.</li>
+</ol>
+</li>
+</ul>
+<h4 id="IOS-vs-Android"><a href="#IOS-vs-Android" class="headerlink" title="IOS vs Android"></a>IOS vs Android</h4><p>IOS</p>
 <ul>
-<li>服务器在 header 里面设置一个 Set-Cookie 字段 <code>Set-Cookie: user=xxx</code>, 发送给服务器</li>
-<li>服务器接收数据之后发现有 Set-Cookie 字段, 就会把 cookie 和内容保存到本地</li>
-<li>服务器下次发同一个 host 网页请求的时候, 会在 header 里面加上一个 Cookie 的字段 <code>Cookie: user=xxx</code></li>
-<li><p>这样服务器接收的 header 里面就会有一个 Cookie 的数据, 解析之后可以与数据库的信息比对, 看是不是同一个用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">headers[&apos;Set-Cookie&apos;] = `user=$&#123;xxx&#125;`</span><br><span class="line">// 可以设置不同的属性, 用 ; 隔开, 格式为 `id=xxx; Expires=xx; HttpOnly`</span><br><span class="line">// HttpOnly: To prevent cross-site scripting (XSS) attacks, HttpOnly cookies are inaccessible to  // JavaScript&apos;s Document.cookie API; they are only sent to the server. document.cookie = &quot;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cookie 可以放在header 里面, 也可以放在 ETag 里面 (基本不用).</p>
-</li>
+<li>同等级, 从左到右, 从下到上<br>Android</li>
+<li>创建一个仰视的改变</li>
 </ul>
-</li>
-<li><p>优点 解决服务器识别不同身份问题</p>
-</li>
-<li><p>问题 安全问题, 身份伪造, cookie 容易猜和模拟. <code>服务器识别用户是通过字符串的，类似于 id=1 这样的简单的cookie非常容易猜到, 这样别人可以在 header 里面模拟别人的 cookie 数据发请求, 所以 cookie 相对没有 cookie 的时候安全性高了一点, 但是还是无法解决身份伪造的问题, 这就需要用session 解决问题.</code></p>
-</li>
-</ul>
-<h1 id="session-–session-是一个理念"><a href="#session-–session-是一个理念" class="headerlink" title="session –session 是一个理念"></a>session –session 是一个理念</h1><ul>
-<li><p>目的: 为了解决 cookie 无法解决的身份伪造的问题.</p>
-</li>
-<li><p>方法: 生成一个随机的字符串给 set-cookie, 这样就不容易猜其他用户的 cookie 信息了. 与 cookie 不同的地方在于： 服务器 parse header <code>{id: xxx}</code> 之后, 需要先与保存 session 的数据库进行比对 <code>session 的保存顺序刚好颠倒一下: {xxx: id}</code>, 得到这个值(xxx)的value, 再通过这个 key 去查询或者处理数据库中这个用户的其他信息.</p>
-</li>
-<li><p>作用: 服务器通过随机字符串来验证身份， 防止身份伪造，主要是防止猜.</p>
-</li>
-<li><p>问题: 无法防止 cookie 被盗的情况(比如信息被公共 wifi 劫持) — 解决方法: 加盐加密</p>
-</li>
-<li><p>session 持久化 (重启后仍然可以用)</p>
+<h4 id="web-elements-vs-Native-Elements"><a href="#web-elements-vs-Native-Elements" class="headerlink" title="web elements vs Native Elements"></a>web elements vs Native Elements</h4><p>web</p>
 <ul>
-<li>cookie 保存到服务器的文件中, 请求的时候读取一下文件</li>
-<li>对称性加密, cookie 也可以存在客户端(通过对称性加密方式存, 服务器只要通过 key 把信息解析出来就好了)</li>
+<li>使用 div, a, span 标签<br>native</li>
+<li>使用 view, text 标签</li>
 </ul>
-</li>
-<li><p>session 共享 (sso) 主要用于是同一个公司不同服务器 (同一旗下不同的网站)共享 session 数据, 连接到网站服务器的时候先插一个 session 服务器, 如果没有登录就直接返回错误了</p>
-</li>
+<h4 id="—-类似-div"><a href="#—-类似-div" class="headerlink" title=" — 类似 div"></a><view> — 类似 div</view></h4><p><view> maps directly to the native equivalent for whichever platform you’re currently on</view></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><text></text></h4><p>展示文字, It’s important to note that you can’t render any text that isn’t wrapped in a <text>text component</text></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a><image></image></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a><textinput></textinput></h4><p>onChangeText: whenever the text in the input field changes.</p>
+<h4 id="-3"><a href="#-3" class="headerlink" title=""></a><touchablehighlight><touchableopacity><touchablewithoutfeedback></touchablewithoutfeedback></touchableopacity></touchablehighlight></h4><ul>
+<li>事件  onPress, 但是不常用</li>
+<li><touchablehighlight> 减少 opacity, 下层颜色会闪过</touchablehighlight></li>
+<li><touchableopacity> 减少 opacity, 下层颜色不会闪</touchableopacity></li>
+<li><touchablewithoutfeedback>, 触发 onPress, 调用 callback, 但是不会给用户 feedback</touchablewithoutfeedback></li>
 </ul>
-<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>服务器在接受到一个需要重定向的 url 请求后, 在返回的请求头里 status code 设置为 301 (302), header 里面设置 Location: ${新url}, 返回给客户端<br>浏览器解析 header 发现 301 就会去 header 里面去找 Location 的 url, 自动重新再用 Location 的 url 发一次新的请求</p>
+<h4 id="-4"><a href="#-4" class="headerlink" title=""></a><activityindicator></activityindicator></h4><p>The default loading indicator<br>it will also change its default styling based on the specific platform it’s on.</p>
+<h4 id="-5"><a href="#-5" class="headerlink" title=""></a><webview></webview></h4><p>render web content into you app</p>
+<h4 id="-6"><a href="#-6" class="headerlink" title=""></a><scrollview></scrollview></h4><p>way to render large lists — ListView, 与 View 的区别就是可以滑动, 比如长页面</p>
+<h4 id="-7"><a href="#-7" class="headerlink" title=""></a><listview></listview></h4><p>render elements that are currently showing on the screen,  ListView actually uses ScrollView under the hood</p>
 
       
     </div>
@@ -376,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/20/node3/" rel="next" title="node3">
-                <i class="fa fa-chevron-left"></i> node3
+              <a href="/2018/05/10/resume/" rel="next" title="resume">
+                <i class="fa fa-chevron-left"></i> resume
               </a>
             
           </div>
@@ -385,10 +374,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/21/node5/" rel="prev" title="node5">
-                node5 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">1.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie"><span class="nav-number">2.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#session-–session-是一个理念"><span class="nav-number">3.</span> <span class="nav-text">session –session 是一个理念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重定向"><span class="nav-number">4.</span> <span class="nav-text">重定向</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Native"><span class="nav-number">1.</span> <span class="nav-text">React Native</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#app-和-web-的区别"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">app 和 web 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOS-vs-Android"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">IOS vs Android</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-elements-vs-Native-Elements"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">web elements vs Native Elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#—-类似-div"><span class="nav-number">1.0.0.5.</span> <span class="nav-text"> — 类似 div</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.0.0.6.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">1.0.0.7.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">1.0.0.8.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-number">1.0.0.9.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-number">1.0.0.10.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-number">1.0.0.11.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-6"><span class="nav-number">1.0.0.12.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-7"><span class="nav-number">1.0.0.13.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
