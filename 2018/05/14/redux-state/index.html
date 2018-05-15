@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="APP 包含 UI 和 state Redux – to make state more predictable在 react 里面, app 里面有很多 component, 并且包含很多 state, 这样不便于管理.redux 就是建立一个 state tree state tree 的作用 shared cache, 不需要一个传递 preditable state changes 统一设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reudx-state">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/redux-state/index.html">
+<meta property="og:site_name" content="node">
+<meta property="og:description" content="APP 包含 UI 和 state Redux – to make state more predictable在 react 里面, app 里面有很多 component, 并且包含很多 state, 这样不便于管理.redux 就是建立一个 state tree state tree 的作用 shared cache, 不需要一个传递 preditable state changes 统一设">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-15T04:21:45.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reudx-state">
+<meta name="twitter:description" content="APP 包含 UI 和 state Redux – to make state more predictable在 react 里面, app 里面有很多 component, 并且包含很多 state, 这样不便于管理.redux 就是建立一个 state tree state tree 的作用 shared cache, 不需要一个传递 preditable state changes 统一设">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/14/redux-state/"/>
+
+
+
+
+
+  <title>reudx-state | node</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">node</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/redux-state/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="eddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="node">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">reudx-state</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-14T14:29:27-07:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>APP 包含 UI 和 state</p>
+<h1 id="Redux-–-to-make-state-more-predictable"><a href="#Redux-–-to-make-state-more-predictable" class="headerlink" title="Redux – to make state more predictable"></a>Redux – to make state more predictable</h1><p>在 react 里面, app 里面有很多 component, 并且包含很多 state, 这样不便于管理.<br>redux 就是建立一个 state tree</p>
+<h1 id="state-tree-的作用"><a href="#state-tree-的作用" class="headerlink" title="state tree 的作用"></a>state tree 的作用</h1><ul>
+<li>shared cache, 不需要一个传递</li>
+<li>preditable state changes 统一设定改变 state 规则, how and when 改变 state</li>
+<li>improved developer tooling 保存 state, 把相关数据联系起来</li>
+<li>pure functions 便于测试</li>
+<li>server rendering 不需要 split data</li>
+</ul>
+<h1 id="如何沟通-–-Store-是什么"><a href="#如何沟通-–-Store-是什么" class="headerlink" title="如何沟通 – Store 是什么"></a>如何沟通 – Store 是什么</h1><ol>
+<li>state tree</li>
+<li>the way to get the state from the state tree</li>
+<li>the way to listen the state tree change 知道哪里改变了</li>
+<li>the way to update the state tree</li>
+</ol>
+<h1 id="redux-实质就是发布订阅模式的应用"><a href="#redux-实质就是发布订阅模式的应用" class="headerlink" title="redux 实质就是发布订阅模式的应用"></a>redux 实质就是发布订阅模式的应用</h1><ul>
+<li>getState 拿到 state tree 里面的所有的 state</li>
+<li>subcribe 就是保存监听函数, 并且如果再调用的话就把这个监听的事件 remove 掉</li>
+<li>action 就是描述 state change 的一些信息, 就是用一个 object 来保存提供注册事件的信息, 提供 type 和 type 对应的信息, type 是必须的, state 改变的时候根据 action 里面的 type 和提供的数据 (比如 id 信息, todo 的内容) 来得到一个新的 state (reducer)   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    type: <span class="string">'add'</span>,</span><br><span class="line">    todo: &#123;</span><br><span class="line">        id: <span class="number">0</span>,</span><br><span class="line">        task: iifj,</span><br><span class="line">        complete: <span class="literal">false</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="pure-function-—-不改变原来的数据-类似-slice-predictable"><a href="#pure-function-—-不改变原来的数据-类似-slice-predictable" class="headerlink" title="pure function — 不改变原来的数据 (类似 slice )  predictable"></a>pure function — 不改变原来的数据 (类似 slice )  predictable</h1><ul>
+<li>always return the same result given the same arguments.</li>
+<li>execution doesn’t depend on the state of the application.</li>
+<li>don’t modify the variables outside of their scope.</li>
+</ul>
+<h1 id="Ruducer-实质就是-pure-function"><a href="#Ruducer-实质就是-pure-function" class="headerlink" title="Ruducer 实质就是 pure function"></a>Ruducer 实质就是 pure function</h1><ul>
+<li><p>如何把 state 和 action 联系起来<br>用一个 pure function, 如果 action 的 type 为设置的 type, 那么就拿到这个 action 的信息, 并且用 concat Store 里面的拿到的初始 state 值 (如果 state 是 undefined, 就设置为 []) 来返回新的 state, 这样就不会改变原来的 state 的值, 保证这个函数是静态的, 完全可以预知的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = <span class="function">(<span class="params">state = [], action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (action.type === <span class="string">'add'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> state.concat([action.todo])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reducer 实质<br>reducer 其实就是一个监听事件的回调函数, 当触发 aciton 里面的 type 的时候, 就返回的 state (aciton 里面的 todo 更新到 state 里面去 )</p>
+</li>
+</ul>
+<h1 id="dispatch-—-update-state"><a href="#dispatch-—-update-state" class="headerlink" title="dispatch — update state"></a>dispatch — update state</h1><ol>
+<li>参数为 action, 这样可以调用 todos (reducer) 返回新的 state</li>
+<li>执行监听函数, 更加新的 state 来改变一些状态或者更新页面</li>
+</ol>
+<h1 id="reducer-总结"><a href="#reducer-总结" class="headerlink" title="reducer 总结"></a>reducer 总结</h1><ol>
+<li>Store 里面保存了所有的 todos</li>
+<li>action 里面保存了 key (type) 和 新的 todo 的信息</li>
+<li>reducer 是监听 type 和 更新 todos 的事件</li>
+<li>subscribe 保存了一堆回调函数</li>
+<li>dispatch 来触发</li>
+</ol>
+<p>dispatch 就是提供一个 action, reducer 就会找到 action 里面的 type, 如果符合要求, 就调用改变 todos 的回调函数, 再根据新的 todos 执行 subscribe 函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> createStore = <span class="function">(<span class="params">reducer</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// state 是所有的数据</span></span><br><span class="line">    <span class="keyword">let</span> state</span><br><span class="line">    <span class="comment">// listener 所有的事件函数</span></span><br><span class="line">    <span class="keyword">let</span> listeners = []</span><br><span class="line">    <span class="keyword">let</span> o = &#123;&#125;</span><br><span class="line">    <span class="comment">// getState 是拿到所有的 state</span></span><br><span class="line">    o.getState = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// subscribe 保存注册监听事件, 并且返回一个函数, 用来取消注册</span></span><br><span class="line">    o.subscribe = <span class="function">(<span class="params">listener</span>) =&gt;</span> &#123;</span><br><span class="line">        listeners.push(listener)</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            listeners = listeners.filter(<span class="function">(<span class="params">l</span>) =&gt;</span> l !== listener)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// dispath a perticular action</span></span><br><span class="line">    <span class="comment">// 通过参数 action 来更新 state, 并且调用所有的监听函数</span></span><br><span class="line">    o.dispatch = <span class="function">(<span class="params">action</span>) =&gt;</span> &#123;</span><br><span class="line">        state = reducer(state, action)</span><br><span class="line">        listeners.forEach(<span class="function">(<span class="params">listener</span>) =&gt;</span> listener() )</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todos = <span class="function">(<span class="params">state = [], action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (action.type === <span class="string">'add'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> state.concat([action.todo])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> action = &#123;</span><br><span class="line">    type: <span class="string">'add'</span>,</span><br><span class="line">    todo: &#123;</span><br><span class="line">        id: <span class="number">0</span>,</span><br><span class="line">        task: <span class="string">'iifj'</span>,</span><br><span class="line">        done: <span class="literal">false</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数是改变 state 的函数 (reducer)</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(todos)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> unsubscribe = store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'store'</span>, store.getState())</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新 state, 并且调用监听函数</span></span><br><span class="line">store.dispatch(action)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把这个注册的函数删除掉</span></span><br><span class="line">unsubscribe()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个时候只会增加 state, 但是不会调用 console.log , 因为那个函数被删除了</span></span><br><span class="line">store.dispatch(action)</span><br><span class="line"></span><br><span class="line">store.getState()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/12/react-native-1/" rel="next" title="Native">
+                <i class="fa fa-chevron-left"></i> Native
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/14/redux-reducer/" rel="prev" title="redux-reducer">
+                redux-reducer <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">eddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux-–-to-make-state-more-predictable"><span class="nav-number">1.</span> <span class="nav-text">Redux – to make state more predictable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#state-tree-的作用"><span class="nav-number">2.</span> <span class="nav-text">state tree 的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何沟通-–-Store-是什么"><span class="nav-number">3.</span> <span class="nav-text">如何沟通 – Store 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redux-实质就是发布订阅模式的应用"><span class="nav-number">4.</span> <span class="nav-text">redux 实质就是发布订阅模式的应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pure-function-—-不改变原来的数据-类似-slice-predictable"><span class="nav-number">5.</span> <span class="nav-text">pure function — 不改变原来的数据 (类似 slice )  predictable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ruducer-实质就是-pure-function"><span class="nav-number">6.</span> <span class="nav-text">Ruducer 实质就是 pure function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dispatch-—-update-state"><span class="nav-number">7.</span> <span class="nav-text">dispatch — update state</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reducer-总结"><span class="nav-number">8.</span> <span class="nav-text">reducer 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eddy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
